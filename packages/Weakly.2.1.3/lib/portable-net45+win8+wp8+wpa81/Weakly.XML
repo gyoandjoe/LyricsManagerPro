@@ -1,0 +1,1167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Weakly</name>
+    </assembly>
+    <members>
+        <member name="T:Weakly.EnumerableHelper">
+            <summary>
+            Common extensions to <see cref="T:System.Collections.Generic.IEnumerable`1"/>
+            </summary>
+        </member>
+        <member name="M:Weakly.EnumerableHelper.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Performs the specified action on each element of the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <typeparam name="T">The type of objects to enumerate.</typeparam>
+            <param name="source">The enumerable.</param>
+            <param name="action">The <see cref="T:System.Action`1"/> delegate to perform on each element of the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</param>
+        </member>
+        <member name="M:Weakly.EnumerableHelper.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Threading.Tasks.Task})">
+            <summary>
+            Performs the specified asynchronous action on each element of the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <typeparam name="T">The type of objects to enumerate.</typeparam>
+            <param name="source">The enumerable.</param>
+            <param name="asyncAction">The <see cref="T:System.Func`2"/> delegate to perform on each element of the <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</param>
+            <returns>A task that represents the completion.</returns>
+        </member>
+        <member name="M:Weakly.EnumerableHelper.SelectAsync``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            Projects asynchronous each element of a sequence into a new form.
+            </summary>
+            <typeparam name="TSource">The type of the elements of source.</typeparam>
+            <typeparam name="TResult">The type of the value returned by asyncSelector.</typeparam>
+            <param name="source">A sequence of values to invoke a transform function on.</param>
+            <param name="asyncSelector">An asynchronous transform function to apply to each element.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Weakly.EnumerableHelper.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Gets the value for a key. If the key does not exist, return default(TValue);
+            </summary>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <param name="dictionary">The dictionary to call this method on.</param>
+            <param name="key">The key to look up.</param>
+            <returns>The key value. default(TValue) if this key is not in the dictionary.</returns>
+        </member>
+        <member name="T:Weakly.WeakCollection`1">
+            <summary>
+            A collections which only holds weak references to the items.
+            </summary>
+            <typeparam name="T">The type of the elements in the collection.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakCollection`1"/> class that is empty and has the default initial capacity.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakCollection`1"/> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.
+            </summary>
+            <param name="collection">The collection whose elements are copied to the new collection.</param>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakCollection`1"/> class that is empty and has the specified initial capacity.
+            </summary>
+            <param name="capacity">The number of elements that the new list can initially store.</param>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.Add(`0)">
+            <summary>
+            Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1" />.
+            </summary>
+            <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.Clear">
+            <summary>
+            Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1" />.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.Contains(`0)">
+            <summary>
+            Determines whether the <see cref="T:System.Collections.Generic.ICollection`1" /> contains a specific value.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
+            <returns>true if <paramref name="item" /> is found in the <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false.</returns>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to an Array, starting at a particular Array index.
+            </summary>
+            <param name="array">The one-dimensional Array that is the destination of the elements copied from the collection.</param>
+            <param name="arrayIndex">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:Weakly.WeakCollection`1.Remove(`0)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:System.Collections.Generic.ICollection`1" />.
+            </summary>
+            <param name="item">The object to remove from the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
+            <returns>true if <paramref name="item" /> was successfully removed from the <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false. This method also returns false if <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
+        </member>
+        <member name="P:Weakly.WeakCollection`1.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
+            </summary>
+            <returns>The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.</returns>
+        </member>
+        <member name="P:Weakly.WeakCollection`1.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+            </summary>
+            <returns>true if the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only; otherwise, false.</returns>
+        </member>
+        <member name="T:Weakly.WeakValueDictionary`2">
+            <summary>
+            A dictionary in which the values are weak references.
+            </summary>
+            <typeparam name="TKey">The type of keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of values in the dictionary.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakValueDictionary`2"/> class that is empty, has the default initial capacity, and uses the default equality comparer for the key type.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakValueDictionary`2"/> class that contains elements copied from the specified <see cref="T:System.Collections.Generic.IDictionary`2"/> and uses the default equality comparer for the key type.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied to the new <see cref="T:Weakly.WeakValueDictionary`2"/>.</param>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakValueDictionary`2"/> class that contains elements copied from the specified <see cref="T:System.Collections.Generic.IDictionary`2"/> and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
+            </summary>
+            <param name="dictionary">The <see cref="T:System.Collections.Generic.IDictionary`2"/> whose elements are copied to the new <see cref="T:Weakly.WeakValueDictionary`2"/>.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing keys, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> for the type of the key.</param>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakValueDictionary`2"/> class that is empty, has the default initial capacity, and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
+            </summary>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing keys, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> for the type of the key.</param>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakValueDictionary`2"/> class that is empty, has the specified initial capacity, and uses the default equality comparer for the key type.
+            </summary>
+            <param name="capacity">The initial number of elements that the <see cref="T:Weakly.WeakValueDictionary`2"/> can contain.</param>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakValueDictionary`2"/> class that is empty, has the specified initial capacity, and uses the specified <see cref="T:System.Collections.Generic.IEqualityComparer`1"/>.
+            </summary>
+            <param name="capacity">The initial number of elements that the <see cref="T:Weakly.WeakValueDictionary`2"/> can contain.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> implementation to use when comparing keys, or null to use the default <see cref="T:System.Collections.Generic.EqualityComparer`1"/> for the type of the key.</param>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:Weakly.WeakValueDictionary`2"/>.
+            </summary>
+            <returns>The enumerator.</returns>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.Clear">
+            <summary>
+            Removes all keys and values from the <see cref="T:Weakly.WeakValueDictionary`2"/>.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.Add(`0,`1)">
+            <summary>
+            Adds the specified key and value to the dictionary.
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="value">The value of the element to add. The value can be null for reference types.</param>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.ContainsKey(`0)">
+            <summary>
+            Determines whether the <see cref="T:Weakly.WeakValueDictionary`2"/> contains the specified key.
+            </summary>
+            <param name="key">The key to locate in the <see cref="T:Weakly.WeakValueDictionary`2"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.Remove(`0)">
+            <summary>
+            Removes the value with the specified key from the <see cref="T:Weakly.WeakValueDictionary`2"/>.
+            </summary>
+            <param name="key">The key of the element to remove.</param>
+            <returns>true if the element is successfully found and removed; otherwise, false. This method returns false if key is not found in the <see cref="T:Weakly.WeakValueDictionary`2"/>.</returns>
+        </member>
+        <member name="M:Weakly.WeakValueDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="value">
+            When this method returns, contains the value associated with the specified key, 
+            if the key is found; otherwise, the default value for the type of the value parameter.
+            This parameter is passed uninitialized.</param>
+            <returns>true if the <see cref="T:Weakly.WeakValueDictionary`2"/> contains an element with the specified key; otherwise, false.</returns>
+        </member>
+        <member name="P:Weakly.WeakValueDictionary`2.Count">
+            <summary>
+            Gets the number of key/value pairs contained in the <see cref="T:Weakly.WeakValueDictionary`2"/>.
+            </summary>
+            <remarks>
+            Since the items in the dictionary are held by weak reference, the count value
+            cannot be relied upon to guarantee the number of objects that would be discovered via
+            enumeration. Treat the Count as an estimate only.
+            </remarks>
+        </member>
+        <member name="P:Weakly.WeakValueDictionary`2.Item(`0)">
+            <summary>
+            Gets or sets the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get or set.</param>
+            <returns>
+            The value associated with the specified key. If the specified key is not found, a get operation throws a <see cref="T:System.Collections.Generic.KeyNotFoundException"/>, 
+            and a set operation creates a new element with the specified key.
+            </returns>
+        </member>
+        <member name="P:Weakly.WeakValueDictionary`2.Keys">
+            <summary>
+            Gets a collection containing the keys in the <see cref="T:Weakly.WeakValueDictionary`2"/>.
+            </summary>
+        </member>
+        <member name="P:Weakly.WeakValueDictionary`2.Values">
+            <summary>
+            Gets a collection containing the values in the <see cref="T:Weakly.WeakValueDictionary`2"/>.
+            </summary>
+        </member>
+        <member name="T:Weakly.DisposableAction">
+            <summary>
+            Executes an action when disposed.
+            </summary>
+        </member>
+        <member name="M:Weakly.DisposableAction.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.DisposableAction"/> class.
+            </summary>
+            <param name="action">The action to execute on dispose.</param>
+        </member>
+        <member name="M:Weakly.DisposableAction.Dispose">
+            <summary>
+            Executes the supplied action.
+            </summary>
+        </member>
+        <member name="T:Weakly.ReflectionHelper">
+            <summary>
+            Some useful helpers for <see cref="N:System.Reflection"/>.
+            </summary>
+        </member>
+        <member name="M:Weakly.ReflectionHelper.IsLambda(System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the specified method is a lambda.
+            </summary>
+            <param name="methodInfo">The method to examine.</param>
+            <returns>True, if the method is a lambda; otherwise false.</returns>
+        </member>
+        <member name="M:Weakly.ReflectionHelper.IsClosure(System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the specified method is closure.
+            </summary>
+            <param name="methodInfo">The method to examine.</param>
+            <returns>True, if the method is a closure; otherwise false.</returns>
+        </member>
+        <member name="M:Weakly.ReflectionHelper.IsAsync(System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the specified method is an async method.
+            </summary>
+            <param name="methodInfo">The method to examine.</param>
+            <returns>True, if the method is an async method; otherwise false.</returns>
+        </member>
+        <member name="M:Weakly.ReflectionHelper.IsWindowsRuntimeType(System.Type)">
+            <summary>
+            Determines wether the specified type is a Windows Runtime Type.
+            </summary>
+            <param name="type">The type to examine.</param>
+            <returns>True, if the type is a Windows Runtime Type; otherwise false.</returns>
+        </member>
+        <member name="T:Weakly.DynamicDelegate">
+            <summary>
+            Helper to create dynamic delegate functions.
+            </summary>
+        </member>
+        <member name="M:Weakly.DynamicDelegate.From(System.Reflection.MethodInfo)">
+            <summary>
+            Create a dynamic delegate from the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns>The dynamic delegate.</returns>
+        </member>
+        <member name="T:Weakly.OpenAction">
+            <summary>
+            Helper to create open delegate actions.
+            </summary>
+        </member>
+        <member name="M:Weakly.OpenAction.From(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenAction.From``1(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T">The type of the parameter of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenAction.From``2(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenAction.From``3(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenAction.From``4(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenAction.From``5(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T5">The type of the fifth parameter of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="T:Weakly.OpenFunc">
+            <summary>
+            Helper to create open delegate functions.
+            </summary>
+        </member>
+        <member name="M:Weakly.OpenFunc.From``1(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenFunc.From``2(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T">The type of the parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenFunc.From``3(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate.</returns>
+        </member>
+        <member name="M:Weakly.OpenFunc.From``4(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate</returns>
+        </member>
+        <member name="M:Weakly.OpenFunc.From``5(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate</returns>
+        </member>
+        <member name="M:Weakly.OpenFunc.From``6(System.Reflection.MethodInfo)">
+            <summary>
+            Create an open delegate from the specified method.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T5">The type of the fifth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+            <param name="method">The method.</param>
+            <returns>The open delegate</returns>
+        </member>
+        <member name="T:Weakly.WeakDelegate">
+            <summary>
+            Base class for all weak delegates.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakDelegate.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakDelegate"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="P:Weakly.WeakDelegate.IsAlive">
+            <summary>
+            Gets an indication whether the object referenced by the current <see cref="T:Weakly.WeakDelegate"/> object has been garbage collected.
+            </summary>
+        </member>
+        <member name="P:Weakly.WeakDelegate.Target">
+            <summary>
+            Gets the class instance on which the current <see cref="T:Weakly.WeakDelegate"/> invokes the instance method.
+            </summary>
+        </member>
+        <member name="P:Weakly.WeakDelegate.Method">
+            <summary>
+            Gets the method represented by this delegate.
+            </summary>
+        </member>
+        <member name="T:Weakly.DynamicProperty">
+            <summary>
+            Helper to create dynamic (complied) property accessors.
+            </summary>
+        </member>
+        <member name="M:Weakly.DynamicProperty.GetterFrom(System.Reflection.PropertyInfo)">
+            <summary>
+            Get compiled Getter function from a given <paramref name="property"/>.
+            </summary>
+            <param name="property">The property.</param>
+            <returns>The function to get the property value.</returns>
+        </member>
+        <member name="M:Weakly.DynamicProperty.SetterFrom(System.Reflection.PropertyInfo)">
+            <summary>
+            Get compiled Setter function from a given <paramref name="property"/>.
+            </summary>
+            <param name="property">The property.</param>
+            <returns>The function to set the property value.</returns>
+        </member>
+        <member name="T:Weakly.DynamicEvent">
+            <summary>
+            Helper methods to register or unregister an event handler using reflection.
+            </summary>
+        </member>
+        <member name="M:Weakly.DynamicEvent.GetAddMethod(System.Reflection.EventInfo)">
+            <summary>
+            Gets the method that adds an event handler to an event source.
+            </summary>
+            <param name="eventInfo">The event information.</param>
+            <returns>The method used to add an event handler delegate to the event source.</returns>
+        </member>
+        <member name="M:Weakly.DynamicEvent.GetRemoveMethod(System.Reflection.EventInfo)">
+            <summary>
+            Gets the method that removes an event handler from an event source.
+            </summary>
+            <param name="eventInfo">The event information.</param>
+            <returns>The method used to remove an event handler delegate from the event source.</returns>
+        </member>
+        <member name="T:Weakly.WeakEventHandler">
+            <summary>
+            A weak event handler using reflection to register and unregister.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakEventHandler.Register``1(System.Object,System.String,System.Action{System.Object,``0})">
+            <summary>
+            Registers for the specified event without holding a strong reference to the <paramref name="handler"/>.
+            </summary>
+            <typeparam name="TEventArgs">The type of the event arguments.</typeparam>
+            <param name="eventSource">The event source.</param>
+            <param name="eventName">The event name.</param>
+            <param name="handler">The handler to register.</param>
+            <returns>A registration object that can be used to deregister from the event.</returns>
+        </member>
+        <member name="M:Weakly.WeakEventHandler.Register``1(System.Type,System.String,System.Action{System.Object,``0})">
+            <summary>
+            Registers for the specified static event without holding a strong reference to the <paramref name="handler"/>.
+            </summary>
+            <typeparam name="TEventArgs">The type of the event arguments.</typeparam>
+            <param name="sourceType">The event source type.</param>
+            <param name="eventName">The event name.</param>
+            <param name="handler">The handler to register.</param>
+            <returns>A registration object that can be used to deregister from the event.</returns>
+        </member>
+        <member name="M:Weakly.WeakEventHandler.Register``1(System.Object,System.Reflection.EventInfo,System.Action{System.Object,``0})">
+            <summary>
+            Registers for the specified event without holding a strong reference to the <paramref name="handler"/>.
+            </summary>
+            <typeparam name="TEventArgs">The type of the event arguments.</typeparam>
+            <param name="eventSource">The event source.</param>
+            <param name="eventInfo">The event information.</param>
+            <param name="handler">The handler to register.</param>
+            <returns>A registration object that can be used to deregister from the event.</returns>
+        </member>
+        <member name="T:Weakly.ExpressionHelper">
+            <summary>
+            Extension for <see cref="T:System.Linq.Expressions.Expression"/>.
+            </summary>
+        </member>
+        <member name="M:Weakly.ExpressionHelper.GetMemberInfo(System.Linq.Expressions.Expression)">
+            <summary>
+            Converts an expression into a <see cref="T:System.Reflection.MemberInfo"/>.
+            </summary>
+            <param name="expression">The expression to convert.</param>
+            <returns>The member info.</returns>
+        </member>
+        <member name="T:Weakly.MemoryTributary">
+            <summary>
+            MemoryTributary is a re-implementation of <see cref="T:System.IO.MemoryStream"/> that uses a dynamic list of byte arrays as a backing store,
+            instead of a single byte array, the allocation of which will fail for relatively small streams as it requires contiguous memory.
+            </summary>
+            <remarks>Based on http://memorytributary.codeplex.com/ by Sebastian Friston.</remarks>
+        </member>
+        <member name="M:Weakly.MemoryTributary.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.MemoryTributary"/> class with an expandable capacity initialized to zero.
+            </summary>
+        </member>
+        <member name="M:Weakly.MemoryTributary.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.MemoryTributary"/> class based on the specified byte array.
+            </summary>
+            <param name="source">The array of unsigned bytes from which to create the current stream.</param>
+        </member>
+        <member name="M:Weakly.MemoryTributary.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.MemoryTributary"/> class with an expandable capacity initialized as specified.
+            </summary>
+            <param name="length">The initial size of the internal array in bytes.</param>
+        </member>
+        <member name="M:Weakly.MemoryTributary.Flush">
+            <summary>
+            Cears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            </summary>
+        </member>
+        <member name="M:Weakly.MemoryTributary.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
+            </summary>
+            <param name="buffer">An array of bytes. When this method returns, the buffer contains the specified byte array with the values between <paramref name="offset" /> and (<paramref name="offset" /> + <paramref name="count" /> - 1) replaced by the bytes read from the current source.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="buffer" /> at which to begin storing the data read from the current stream.</param>
+            <param name="count">The maximum number of bytes to be read from the current stream.</param>
+            <returns>
+            The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.
+            </returns>
+        </member>
+        <member name="M:Weakly.MemoryTributary.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the position within the current stream.
+            </summary>
+            <param name="offset">A byte offset relative to the <paramref name="origin" /> parameter.</param>
+            <param name="origin">A value of type <see cref="T:System.IO.SeekOrigin" /> indicating the reference point used to obtain the new position.</param>
+            <returns>
+            The new position within the current stream.
+            </returns>
+        </member>
+        <member name="M:Weakly.MemoryTributary.SetLength(System.Int64)">
+            <summary>
+            Sets the length of the current stream.
+            </summary>
+            <param name="value">The desired length of the current stream in bytes.</param>
+        </member>
+        <member name="M:Weakly.MemoryTributary.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
+            </summary>
+            <param name="buffer">An array of bytes. This method copies <paramref name="count" /> bytes from <paramref name="buffer" /> to the current stream.</param>
+            <param name="offset">The zero-based byte offset in <paramref name="buffer" /> at which to begin copying bytes to the current stream.</param>
+            <param name="count">The number of bytes to be written to the current stream.</param>
+        </member>
+        <member name="M:Weakly.MemoryTributary.ReadByte">
+            <summary>
+            Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.
+            </summary>
+            <returns>
+            The unsigned byte cast to an Int32, or -1 if at the end of the stream.
+            </returns>
+        </member>
+        <member name="M:Weakly.MemoryTributary.WriteByte(System.Byte)">
+            <summary>
+            Writes a byte to the current position in the stream and advances the position within the stream by one byte.
+            </summary>
+            <param name="value">The byte to write to the stream.</param>
+        </member>
+        <member name="M:Weakly.MemoryTributary.ToArray">
+            <summary>
+            Returns the entire content of the stream as a byte array. This is not safe because the call to new byte[] may 
+            fail if the stream is large enough. Where possible use methods which operate on streams directly instead.
+            </summary>
+            <returns>A byte[] containing the current data in the stream</returns>
+        </member>
+        <member name="M:Weakly.MemoryTributary.ReadFrom(System.IO.Stream,System.Int64)">
+            <summary>
+            Reads length bytes from source into the this instance at the current position.
+            </summary>
+            <param name="source">The stream containing the data to copy</param>
+            <param name="length">The number of bytes to copy</param>
+        </member>
+        <member name="M:Weakly.MemoryTributary.WriteTo(System.IO.Stream)">
+            <summary>
+            Writes the entire stream into destination, regardless of Position, which remains unchanged.
+            </summary>
+            <param name="destination">The stream to write the content of this stream to</param>
+        </member>
+        <member name="P:Weakly.MemoryTributary.CanRead">
+            <summary>
+            Gets a value indicating whether the current stream supports reading.
+            </summary>
+            <returns>true if the stream supports reading; otherwise, false.</returns>
+        </member>
+        <member name="P:Weakly.MemoryTributary.CanSeek">
+            <summary>
+            Gets a value indicating whether the current stream supports seeking.
+            </summary>
+            <returns>true if the stream supports seeking; otherwise, false.</returns>
+        </member>
+        <member name="P:Weakly.MemoryTributary.CanWrite">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports writing.
+            </summary>
+            <returns>true if the stream supports writing; otherwise, false.</returns>
+        </member>
+        <member name="P:Weakly.MemoryTributary.Length">
+            <summary>
+            Gets the length in bytes of the stream.
+            </summary>
+            <returns>A long value representing the length of the stream in bytes.</returns>
+        </member>
+        <member name="P:Weakly.MemoryTributary.Position">
+            <summary>
+            Gets or sets the position within the current stream.
+            </summary>
+            <returns>The current position within the stream.</returns>
+        </member>
+        <member name="P:Weakly.MemoryTributary.Block">
+            <summary>
+            The block of memory currently addressed by Position
+            </summary>
+        </member>
+        <member name="P:Weakly.MemoryTributary.BlockId">
+            <summary>
+            The id of the block currently addressed by Position
+            </summary>
+        </member>
+        <member name="P:Weakly.MemoryTributary.BlockOffset">
+            <summary>
+            The offset of the byte currently addressed by Position, into the block that contains it
+            </summary>
+        </member>
+        <member name="T:Weakly.WeakAction">
+            <summary>
+            Weak version of <see cref="T:System.Action"/> delegate.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakAction.#ctor(System.Action)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction"/> class.
+            </summary>
+            <param name="action">The action delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction.Invoke">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+        </member>
+        <member name="T:Weakly.WeakAction`1">
+            <summary>
+            Weak version of <see cref="T:System.Action`1"/> delegate.
+            </summary>
+            <typeparam name="T">The parameter of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakAction`1.#ctor(System.Action{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`1"/> class.
+            </summary>
+            <param name="action">The action delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`1.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`1"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`1.Invoke(`0)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="obj">The parameter of the method that this delegate encapsulates.</param>
+        </member>
+        <member name="T:Weakly.WeakAction`2">
+            <summary>
+            Weak version of <see cref="T:System.Action`2"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakAction`2.#ctor(System.Action{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`2"/> class.
+            </summary>
+            <param name="action">The action delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`2.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`2"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`2.Invoke(`0,`1)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+        </member>
+        <member name="T:Weakly.WeakAction`3">
+            <summary>
+            Weak version of <see cref="T:System.Action`3"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakAction`3.#ctor(System.Action{`0,`1,`2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`3"/> class.
+            </summary>
+            <param name="action">The action delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`3.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`3"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`3.Invoke(`0,`1,`2)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <param name="arg3">The third parameter of the method that this delegate encapsulates.</param>
+        </member>
+        <member name="T:Weakly.WeakAction`4">
+            <summary>
+            Weak version of <see cref="T:System.Action`4"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakAction`4.#ctor(System.Action{`0,`1,`2,`3})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`4"/> class.
+            </summary>
+            <param name="action">The action delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`4.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`4"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`4.Invoke(`0,`1,`2,`3)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <param name="arg3">The third parameter of the method that this delegate encapsulates.</param>
+            <param name="arg4">The fourth parameter of the method that this delegate encapsulates.</param>
+        </member>
+        <member name="T:Weakly.WeakAction`5">
+            <summary>
+            Weak version of <see cref="T:System.Action`5"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T5">The type of the fifth parameter of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakAction`5.#ctor(System.Action{`0,`1,`2,`3,`4})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`5"/> class.
+            </summary>
+            <param name="action">The action delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`5.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakAction`5"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakAction`5.Invoke(`0,`1,`2,`3,`4)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <param name="arg3">The third parameter of the method that this delegate encapsulates.</param>
+            <param name="arg4">The fourth parameter of the method that this delegate encapsulates.</param>
+            <param name="arg5">The fifth parameter of the method that this delegate encapsulates.</param>
+        </member>
+        <member name="T:Weakly.WeakEventSourceBase`1">
+            <summary>
+            A weak event source that does not hold any strong reference to the event listeners.
+            </summary>
+            <typeparam name="TEventArgs">The type of the event data generated by the event.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakEventSourceBase`1.Add(System.Delegate)">
+            <summary>
+            Adds the specified event handler.
+            </summary>
+            <param name="eventHandler">The event handler.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSourceBase`1.Remove(System.Delegate)">
+            <summary>
+            Removes the specified event handler.
+            </summary>
+            <param name="eventHandler">The event handler.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSourceBase`1.Raise(System.Object,`0)">
+            <summary>
+            Raises the event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An object that contains the event data.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSourceBase`1.OnRaise(System.Object,`0)">
+            <summary>
+            Called when the event is raised.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An object that contains the event data.</param>
+        </member>
+        <member name="T:Weakly.WeakEventSource">
+            <summary>
+            A weak event source that does not hold any strong reference to the event listeners.
+            </summary>
+        </member>
+        <member name="M:Weakly.WeakEventSource.Add(System.EventHandler)">
+            <summary>
+            Adds the specified event handler.
+            </summary>
+            <param name="eventHandler">The event handler.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSource.Remove(System.EventHandler)">
+            <summary>
+            Removes the specified event handler.
+            </summary>
+            <param name="eventHandler">The event handler.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSource.OnRaise(System.Object,System.EventArgs)">
+            <summary>
+            Notifies all static event handlers.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An object that contains the event data.</param>
+        </member>
+        <member name="T:Weakly.WeakEventSource`1">
+            <summary>
+            A weak event source that does not hold any strong reference to the event listeners.
+            </summary>
+            <typeparam name="TEventArgs">The type of the event data generated by the event.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakEventSource`1.Add(System.EventHandler{`0})">
+            <summary>
+            Adds the specified event handler.
+            </summary>
+            <param name="eventHandler">The event handler.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSource`1.Remove(System.EventHandler{`0})">
+            <summary>
+            Removes the specified event handler.
+            </summary>
+            <param name="eventHandler">The event handler.</param>
+        </member>
+        <member name="M:Weakly.WeakEventSource`1.OnRaise(System.Object,`0)">
+            <summary>
+            Notifies all static event handlers.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An object that contains the event data.</param>
+        </member>
+        <member name="T:Weakly.WeakFunc`1">
+            <summary>
+            Weak version of <see cref="T:System.Func`1"/> delegate.
+            </summary>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakFunc`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`1"/> class.
+            </summary>
+            <param name="function">The function delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`1.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`1"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`1.Invoke">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <returns>The return value of the method that this delegate encapsulates.</returns>
+        </member>
+        <member name="T:Weakly.WeakFunc`2">
+            <summary>
+            Weak version of <see cref="T:System.Func`2"/> delegate.
+            </summary>
+            <typeparam name="T">The type of the parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakFunc`2.#ctor(System.Func{`0,`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`2"/> class.
+            </summary>
+            <param name="function">The function delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`2.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`2"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`2.Invoke(`0)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="obj">The parameter of the method that this delegate encapsulates.</param>
+            <returns>The return value of the method that this delegate encapsulates.</returns>
+        </member>
+        <member name="T:Weakly.WeakFunc`3">
+            <summary>
+            Weak version of <see cref="T:System.Func`3"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakFunc`3.#ctor(System.Func{`0,`1,`2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`3"/> class.
+            </summary>
+            <param name="function">The function delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`3.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`3"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`3.Invoke(`0,`1)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <returns>The return value of the method that this delegate encapsulates.</returns>
+        </member>
+        <member name="T:Weakly.WeakFunc`4">
+            <summary>
+            Weak version of <see cref="T:System.Func`4"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakFunc`4.#ctor(System.Func{`0,`1,`2,`3})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`4"/> class.
+            </summary>
+            <param name="function">The function delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`4.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`4"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`4.Invoke(`0,`1,`2)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <param name="arg3">The third parameter of the method that this delegate encapsulates.</param>
+            <returns>The return value of the method that this delegate encapsulates.</returns>
+        </member>
+        <member name="T:Weakly.WeakFunc`5">
+            <summary>
+            Weak version of <see cref="T:System.Func`5"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakFunc`5.#ctor(System.Func{`0,`1,`2,`3,`4})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`5"/> class.
+            </summary>
+            <param name="function">The function delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`5.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`5"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`5.Invoke(`0,`1,`2,`3)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <param name="arg3">The third parameter of the method that this delegate encapsulates.</param>
+            <param name="arg4">The fourth parameter of the method that this delegate encapsulates.</param>
+            <returns>The return value of the method that this delegate encapsulates.</returns>
+        </member>
+        <member name="T:Weakly.WeakFunc`6">
+            <summary>
+            Weak version of <see cref="T:System.Func`6"/> delegate.
+            </summary>
+            <typeparam name="T1">The type of the first parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T2">The type of the second parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T3">The type of the third parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T4">The type of the fourth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="T5">The type of the fifth parameter of the method that this delegate encapsulates.</typeparam>
+            <typeparam name="TResult">The type of the return value of the method that this delegate encapsulates.</typeparam>
+        </member>
+        <member name="M:Weakly.WeakFunc`6.#ctor(System.Func{`0,`1,`2,`3,`4,`5})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`6"/> class.
+            </summary>
+            <param name="function">The function delegate to encapsulate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`6.#ctor(System.Object,System.Reflection.MethodInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Weakly.WeakFunc`6"/> class.
+            </summary>
+            <param name="target">The class instance on which the current delegate invokes the instance method.</param>
+            <param name="method">The method represented by the delegate.</param>
+        </member>
+        <member name="M:Weakly.WeakFunc`6.Invoke(`0,`1,`2,`3,`4)">
+            <summary>
+            Invokes the method represented by the current weak delegate.
+            </summary>
+            <param name="arg1">The first parameter of the method that this delegate encapsulates.</param>
+            <param name="arg2">The second parameter of the method that this delegate encapsulates.</param>
+            <param name="arg3">The third parameter of the method that this delegate encapsulates.</param>
+            <param name="arg4">The fourth parameter of the method that this delegate encapsulates.</param>
+            <param name="arg5">The fifth parameter of the method that this delegate encapsulates.</param>
+            <returns>The return value of the method that this delegate encapsulates.</returns>
+        </member>
+        <member name="T:Weakly.TaskHelper">
+            <summary>
+            Helper to create completed, canceled and faulted tasks.
+            </summary>
+        </member>
+        <member name="M:Weakly.TaskHelper.Completed">
+            <summary>
+            Gets an already completed task.
+            </summary>
+            <returns>The completed task.</returns>
+        </member>
+        <member name="M:Weakly.TaskHelper.Canceled">
+            <summary>
+            Gets an already canceled task.
+            </summary>
+            <returns>The canceled task.</returns>
+        </member>
+        <member name="M:Weakly.TaskHelper.Canceled``1">
+            <summary>
+            Gets an already canceled task.
+            </summary>
+            <returns>The canceled task.</returns>
+        </member>
+        <member name="M:Weakly.TaskHelper.Faulted``1(System.Exception)">
+            <summary>
+            Creates a task that is fauled with the specified exception.
+            </summary>
+            <typeparam name="TResult">The type of the result returned by the task.</typeparam>
+            <param name="ex">The exception.</param>
+            <returns>The faulted task.</returns>
+        </member>
+        <member name="M:Weakly.TaskHelper.Faulted(System.Exception)">
+            <summary>
+            Creates a task that is fauled with the specified exception.
+            </summary>
+            <param name="ex">The exception.</param>
+            <returns>The faulted task.</returns>
+        </member>
+        <member name="M:Weakly.TaskHelper.IgnoreExceptions(System.Threading.Tasks.Task)">
+            <summary>
+            Suppresses default exception handling of a Task that would otherwise reraise the exception on the finalizer thread.
+            </summary>
+            <param name="task">The Task to be monitored.</param>
+            <returns>The original Task.</returns>
+        </member>
+        <member name="M:Weakly.TaskHelper.IgnoreExceptions``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Suppresses default exception handling of a Task that would otherwise reraise the exception on the finalizer thread.
+            </summary>
+            <param name="task">The Task to be monitored.</param>
+            <returns>The original Task.</returns>
+        </member>
+    </members>
+</doc>
