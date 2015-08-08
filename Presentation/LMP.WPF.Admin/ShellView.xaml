@@ -3,11 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="LMP.WPF.Admin.ShellView"
         xmlns:local="clr-namespace:LMP.WPF.Admin.Commandss"
-    
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cal="http://www.caliburnproject.org"
         Title="ShellView" Height="400" Width="300">
     <Grid>
-
         <Grid.RowDefinitions>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            
+        </Grid.ColumnDefinitions>
+        
+        
+        <telerik:RadRichTextBoxRibbonUI x:Name="radRichTextBoxRibbonUI" HorizontalAlignment="Left"  VerticalAlignment="Top" DataContext="SongEditor" >
+            <telerik:RadRibbonTab Header="Inicio" telerik:ScreenTip.Title="Inicios" telerik:ScreenTip.Description="Inicio">
+            </telerik:RadRibbonTab>
+
+            <telerik:RadRibbonTab Header="Letra" telerik:ScreenTip.Title="Inicios" telerik:ScreenTip.Description="Operaciones sobre letra">
+                <telerik:RadRibbonGroup Header="Administración de Inicios">
+                    <telerik:RadRibbonButton x:Name="AddVerso" Content="Verso" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="AddVerso">
+                                    <cal:Parameter Value="$eventArgs" />
+                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />                                    
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton x:Name="AddCoro" Content="Coro"/>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+
+
+        </telerik:RadRichTextBoxRibbonUI>
+
+        <telerik:RadRichTextBox x:Name="SongEditor" Grid.Row="1" />
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
             <RowDefinition Height="35"></RowDefinition>
@@ -16,16 +50,16 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <!--<telerik:RadButton Grid.Row="3" DataContext="{Binding ElementName=radRichTextBox, Path=Commands}" IsTabStop="False"
+        --><!--<telerik:RadButton Grid.Row="3" DataContext="{Binding ElementName=radRichTextBox, Path=Commands}" IsTabStop="False"
                        Command="{Binding Path=InsertTextCommand}"
-                       CommandParameter="MM" Content="Insert Text" IsEnabled="True"/>-->
+                       CommandParameter="MM" Content="Insert Text" IsEnabled="True"/>--><!--
         <telerik:RadButton Grid.Row="3" DataContext="{Binding ElementName=RichTextBox2, Path=Comandos}"
                        Command="{Binding Path=InsertVersoCommand}"
                        CommandParameter="John" Content="Insert Text" IsEnabled="True"/>
         
 
         <TextBox x:Name="textboxx" Text="okey"></TextBox>
-        <!--<telerik:RadRichTextBox Name="radRichTextBox1" Grid.Row="1" />-->
+        --><!--<telerik:RadRichTextBox Name="radRichTextBox1" Grid.Row="1" />--><!--
 
         <local:RichTextBox2 Grid.Row="0" x:Name="radRichTextBox" />
         <telerik:RadRichTextBox Grid.Row="4" x:Name="radRichTextBox2"  />
@@ -38,7 +72,7 @@
         <telerik:RadToggleButton x:Name="BoldButton" Grid.Row="2"
                             Content="Bold"
                             DataContext="{Binding Commands, ElementName=radRichTextBox}"
-                            Command="{Binding ToggleBoldCommand}" Margin="0,235,0,0" />
+                            Command="{Binding ToggleBoldCommand}" Margin="0,235,0,0" />-->
 
         
 

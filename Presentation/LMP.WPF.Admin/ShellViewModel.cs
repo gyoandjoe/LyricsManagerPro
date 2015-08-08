@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Documents.Layout;
+using Telerik.Windows.Documents.Model;
 
 namespace LMP.WPF.Admin
 {
@@ -13,7 +15,7 @@ namespace LMP.WPF.Admin
     {
         //public ShellViewModel()
         //{
-            
+
         //}
 
 
@@ -30,7 +32,7 @@ namespace LMP.WPF.Admin
 
         private string _text = @"<h1>Solo Texto</h1>";
 
-        public string Texto 
+        public string Texto
         {
             get { return _text; }
             set { _text = value; this.NotifyOfPropertyChange(() => Texto); }
@@ -41,7 +43,7 @@ namespace LMP.WPF.Admin
         public string Contenido
         {
             get { return _Contenido; }
-            set { 
+            set {
                 _Contenido = value;
                 this.NotifyOfPropertyChange(() => Contenido);
             }
@@ -59,10 +61,10 @@ namespace LMP.WPF.Admin
         public InsertVersoCommand comandok
         {
             get { return _comandok; }
-            set { _comandok = value; this.NotifyOfPropertyChange(() => comandok); } 
+            set { _comandok = value; this.NotifyOfPropertyChange(() => comandok); }
         }
 
-        
+
 
         public virtual void Test()
         {
@@ -85,7 +87,34 @@ namespace LMP.WPF.Admin
         }
         public override void TryClose(bool? dialogResult = null)
         {
-            base.TryClose(dialogResult);            
+            base.TryClose(dialogResult);
+        }
+
+
+        public void AddCoro()
+        {
+
+        }
+
+        public void AddVerso(EventArgs args, RadRichTextBox control)
+        {
+            if (control != null)
+            {
+                RadDocument rd = new RadDocument();
+                //rd = control.Document;
+                Section section = new Section();
+                Paragraph paragraph = new Paragraph();
+                Span s2 = new Span();
+
+                s2.Text = "This is my text";
+                paragraph.Inlines.Add(s2);
+                section.Blocks.Add(paragraph);
+                rd.Sections.Add(section);
+                
+                //control.Insert(FormattingSymbolLayoutBox.ENTER);
+                control.Document = rd;
+            }
+
         }
 
 
