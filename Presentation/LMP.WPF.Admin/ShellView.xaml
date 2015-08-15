@@ -33,7 +33,30 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </telerik:RadRibbonButton>
-                    <telerik:RadRibbonButton x:Name="AddCoro" Content="Coro"/>
+
+                    
+
+                    <telerik:RadRibbonButton x:Name="DeleteSongElement" Content="Delete" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="DeleteMusicFragment">
+                                    <cal:Parameter Value="$eventArgs" />
+                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton x:Name="AddCoro" Content="Coro" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="AddCoro">
+                                    <cal:Parameter Value="$eventArgs" />
+                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadRibbonButton>
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 

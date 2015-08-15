@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Documents;
 using Telerik.Windows.Documents.Layout;
 using Telerik.Windows.Documents.Model;
 
@@ -91,13 +92,27 @@ namespace LMP.WPF.Admin
         }
 
 
-        public void AddCoro()
+        public void AddCoro(EventArgs args, RadRichTextBox control)
         {
+            if (control != null)
+            {
+                
+                DocumentPosition currentPosition = new DocumentPosition(control.Document.CaretPosition);
+                var currentParagraph = currentPosition.GetCurrentParagraphBox().AssociatedParagraph;
+                var currentInline = currentPosition.GetCurrentInline();
+                currentParagraph.Inlines.AddBefore(currentInline, new Span("Okey"));
+                control.UpdateEditorLayout();
 
+                
+            }
+
+            
+
+            //currentPosition.moveto
         }
 
         public void AddVerso(EventArgs args, RadRichTextBox control)
-        {
+        {                   
             if (control != null)
             {
                 RadDocument rd = new RadDocument();
@@ -105,18 +120,76 @@ namespace LMP.WPF.Admin
                 Section section = new Section();
                 Paragraph paragraph = new Paragraph();
                 Span s2 = new Span();
-
-                s2.Text = "This is my text";
+                s2.Text = "This is my text editable" ;
                 paragraph.Inlines.Add(s2);
                 section.Blocks.Add(paragraph);
+                //paragraph.Inlines.Add(new Span(FormattingSymbolLayoutBox.ENTER));
+
+
+
+
+                Span span = new Span("  ----  Verso   ----");
+
+
+                Paragraph paragraph2 = new Paragraph();
+                ReadOnlyRangeStart rangeStart = new ReadOnlyRangeStart();
+                ReadOnlyRangeEnd rangeEnd = new ReadOnlyRangeEnd();
+                rangeEnd.PairWithStart(rangeStart);
+                paragraph2.Inlines.Add(rangeStart);
+                paragraph2.Inlines.Add(span);
+                paragraph2.Inlines.Add(rangeEnd);
+                section.Blocks.Add(paragraph2);
+
                 rd.Sections.Add(section);
-                
+
                 //control.Insert(FormattingSymbolLayoutBox.ENTER);
                 control.Document = rd;
             }
-
         }
 
+        public void DeleteMusicFragment(EventArgs args, RadRichTextBox control)
+        {
+            DocumentPosition startPosition = new DocumentPosition(control.Document.CaretPosition);
+            var currentParagraph = startPosition.GetCurrentParagraphBox().AssociatedParagraph;
+            //DocumentPosition endPosition = new DocumentPosition(startPosition);
 
+            if (startPosition.GetCurrentInline().PreviousSibling.GetType() == typeof ( ReadOnlyRangeStart))
+            {
+                control.DeleteReadOnlyRange();
+                var spanLost = currentParagraph.EnumerateChildrenOfType<Inline>().Where(x => x == startPosition.GetCurrentInline()).SingleOrDefault();
+                currentParagraph.Inlines.Remove(spanLost);
+            }
+
+            
+
+            //ReadOnlyRangeStart start = currentParagraph.EnumerateChildrenOfType<ReadOnlyRangeStart>().FirstOrDefault();//start = control.Document.EnumerateChildrenOfType<ReadOnlyRangeStart>().Where(x => x.Tag == "ReadOnly").FirstOrDefault();
+            //if (start != null)
+            //{
+
+
+
+
+            //    control.Document.Sections.FirstOrDefault().Blocks.Remove(currentParagraph);
+
+            //    control.Document.UpdateLayout();
+            //    //control.UpdateLayout();
+            //    //NotifyOfPropertyChange(() => control.Document);
+
+            //}
+
+
+
+            //control.DeleteReadOnlyRange();
+
+            //var startt = currentParagraph.EnumerateChildrenOfType<ReadOnlyRangeStart>().FirstOrDefault();
+
+
+
+            //control.Document = control.Document;
+            //startPosition.MoveToFirstPositionInParagraph();
+            //endPosition.MoveToLastPositionInParagraph();
+            //control.Document.Selection.SetSelectionStart(startPosition);
+            //control.Document.Selection.AddSelectionEnd(endPosition);
+        }
     }
 }
