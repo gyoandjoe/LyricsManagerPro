@@ -95,6 +95,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\InsertVersoCommand.cs" />
+    <Compile Include="Factories\TextElementsFactory.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="ShellViewModel.cs" />
   </ItemGroup>

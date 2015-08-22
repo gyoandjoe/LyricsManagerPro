@@ -65,7 +65,45 @@ namespace LMP.WPF.Admin
             set { _comandok = value; this.NotifyOfPropertyChange(() => comandok); }
         }
 
+        protected override void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            string testText = @"V1
+ Is it just me or the walls closing in?
+ I can't be the only one feeling this
+ So lets tear down brick by brick
+ Cause it's not helping anyone
+ Lets get out from under this
+ Or we'll watch it fall on us all
 
+Chorus
+ Can you feel the urgency now
+ Its time for us to love out loud
+ Take what we know and live it out
+
+V2
+ So am I part of the cure or part of the disease
+ I think its time we fall down on our knees
+ And ask God for clarity
+ To wash away our memories of the old way
+ Yeah, and pray that the walls break
+
+Chorus 2
+ Can you feel the urgency now
+ Its time for us to love out loud
+ Take what we know and live it out
+ This could be the start of a new day
+ We could be the change
+ If we take this love and live it out
+
+Bridge
+ We are lost and broken people
+ Turned our crosses into steeples
+ Lets take them down and put them on our backs now
+ Keep your love on track now
+ Cause this is an emergency
+";
+        }
 
         public virtual void Test()
         {
@@ -100,14 +138,30 @@ namespace LMP.WPF.Admin
                 DocumentPosition currentPosition = new DocumentPosition(control.Document.CaretPosition);
                 var currentParagraph = currentPosition.GetCurrentParagraphBox().AssociatedParagraph;
                 var currentInline = currentPosition.GetCurrentInline();
-                currentParagraph.Inlines.AddBefore(currentInline, new Span("Okey"));
-                control.UpdateEditorLayout();
+                
+                ReadOnlyRangeStart rangeStart = new ReadOnlyRangeStart();
+                ReadOnlyRangeEnd rangeEnd = new ReadOnlyRangeEnd();
+                rangeEnd.PairWithStart(rangeStart);
 
                 
+                currentParagraph.Inlines.AddBefore(currentInline, rangeStart);
+
+                ////currentPosition.MoveToPreviousInline();
+                //currentInline = currentPosition.GetCurrentInline();
+                //currentParagraph.Inlines.AddBefore(currentInline, new Span(FormattingSymbolLayoutBox.LINE_BREAK));
+                currentParagraph.Inlines.AddBefore(currentInline, new Span("  ----  Coro   ----" ));
+                currentParagraph.Inlines.AddBefore(currentInline, new Span(FormattingSymbolLayoutBox.LINE_BREAK));
+
+
+                //currentPosition.MoveToPreviousInline();
+                //currentInline = currentPosition.GetCurrentInline();
+
+                currentParagraph.Inlines.AddBefore(currentInline, rangeEnd);
+
+                
+
+                control.UpdateEditorLayout();                
             }
-
-            
-
             //currentPosition.moveto
         }
 
@@ -124,12 +178,8 @@ namespace LMP.WPF.Admin
                 paragraph.Inlines.Add(s2);
                 section.Blocks.Add(paragraph);
                 //paragraph.Inlines.Add(new Span(FormattingSymbolLayoutBox.ENTER));
-
-
-
-
+                
                 Span span = new Span("  ----  Verso   ----");
-
 
                 Paragraph paragraph2 = new Paragraph();
                 ReadOnlyRangeStart rangeStart = new ReadOnlyRangeStart();
@@ -147,49 +197,91 @@ namespace LMP.WPF.Admin
             }
         }
 
+        private void DeleteReadOnlyRange(ReadOnlyRangeStart readOnlyRange, RadRichTextBox editor)
+        {
+            DocumentPosition startOfSelection = new DocumentPosition(editor.Document.DocumentLayoutBox, true);
+            DocumentPosition endOfSelection = new DocumentPosition(editor.Document.DocumentLayoutBox, true);
+
+            startOfSelection.MoveToInline(readOnlyRange.FirstLayoutBox as InlineLayoutBox, 0);
+            startOfSelection.MoveToNext();
+            endOfSelection.MoveToInline(readOnlyRange.End.FirstLayoutBox as InlineLayoutBox, 0);
+            endOfSelection.MoveToNextInline();
+            editor.DeleteReadOnlyRange(readOnlyRange);
+            editor.Document.Selection.SetSelectionStart(startOfSelection);
+            editor.Document.Selection.AddSelectionEnd(endOfSelection);
+            editor.Delete(false);
+            startOfSelection.Dispose();
+            endOfSelection.Dispose();
+        }
+
         public void DeleteMusicFragment(EventArgs args, RadRichTextBox control)
         {
-            DocumentPosition startPosition = new DocumentPosition(control.Document.CaretPosition);
-            var currentParagraph = startPosition.GetCurrentParagraphBox().AssociatedParagraph;
-            //DocumentPosition endPosition = new DocumentPosition(startPosition);
-
-            if (startPosition.GetCurrentInline().PreviousSibling.GetType() == typeof ( ReadOnlyRangeStart))
+            DocumentPosition currentPosition = new DocumentPosition(control.Document.CaretPosition);
+            var NextSiblingType = currentPosition.GetCurrentInline().NextSibling.GetType();
+            var PreviousSiblingType = currentPosition.GetCurrentInline().PreviousSibling.GetType();
+            if (NextSiblingType == typeof(ReadOnlyRangeEnd))
             {
-                control.DeleteReadOnlyRange();
-                var spanLost = currentParagraph.EnumerateChildrenOfType<Inline>().Where(x => x == startPosition.GetCurrentInline()).SingleOrDefault();
+                control.Document.CaretPosition.MoveToPreviousInline();
+                control.Document.CaretPosition.MoveToNext();
+                currentPosition = new DocumentPosition(control.Document.CaretPosition);
+                PreviousSiblingType = currentPosition.GetCurrentInline().PreviousSibling.GetType();
+            }
+            else if (currentPosition.GetCurrentInlineBox().AssociatedInline.GetType() == typeof(ReadOnlyRangeStart))
+            {
+                control.Document.CaretPosition.MoveToNext();
+                currentPosition = new DocumentPosition(control.Document.CaretPosition);
+                PreviousSiblingType = currentPosition.GetCurrentInline().PreviousSibling.GetType();
+            }
+            else if (PreviousSiblingType == typeof(ReadOnlyRangeEnd))
+            {
+                return;
+                //if (control.Document.Selection.IsEmpty == false)
+                //{
+                //    control.Document.Selection.Clear();
+                //}
+                //control.Document.CaretPosition.MoveToPreviousInline();
+                //control.Document.CaretPosition.MoveToPreviousInline();
+                //control.Document.CaretPosition.MoveToNext();
+                //currentPosition = new DocumentPosition(control.Document.CaretPosition);
+                //PreviousSiblingType = currentPosition.GetCurrentInline().PreviousSibling.GetType();
+                //if (PreviousSiblingType == typeof(ReadOnlyRangeEnd))
+                //{
+                //    control.Document.CaretPosition.MoveToPreviousSpanBox();
+                //    control.Document.CaretPosition.MoveToNext();
+                //    currentPosition = new DocumentPosition(control.Document.CaretPosition);
+                //    PreviousSiblingType = currentPosition.GetCurrentInline().PreviousSibling.GetType();
+                //}
+            }            
+
+            var test = currentPosition.GetCurrentInlineBox();
+            var currentParagraph = currentPosition.GetCurrentParagraphBox().AssociatedParagraph;
+            
+            NextSiblingType = currentPosition.GetCurrentInline().NextSibling.GetType();
+
+            if (PreviousSiblingType == typeof(ReadOnlyRangeStart)  )
+            {
+                if (control.Document.Selection.IsEmpty == false)
+                {
+                    control.Document.Selection.Clear();
+                }
+                var ro = (ReadOnlyRangeStart)currentPosition.GetCurrentInline().PreviousSibling;
+                var spanLost = currentParagraph.EnumerateChildrenOfType<Span>().Where(x => x == currentPosition.GetCurrentInline()).SingleOrDefault();
+                currentPosition.MoveToNextInline();
+                var spanEnter = currentParagraph.EnumerateChildrenOfType<Span>().Where(x => x == currentPosition.GetCurrentInline()).SingleOrDefault();
+
+
                 currentParagraph.Inlines.Remove(spanLost);
+                currentParagraph.Inlines.Remove(spanEnter);
+                control.DeleteReadOnlyRange(ro);
+
+
+                control.UpdateEditorLayout();
             }
 
+           
+
+
             
-
-            //ReadOnlyRangeStart start = currentParagraph.EnumerateChildrenOfType<ReadOnlyRangeStart>().FirstOrDefault();//start = control.Document.EnumerateChildrenOfType<ReadOnlyRangeStart>().Where(x => x.Tag == "ReadOnly").FirstOrDefault();
-            //if (start != null)
-            //{
-
-
-
-
-            //    control.Document.Sections.FirstOrDefault().Blocks.Remove(currentParagraph);
-
-            //    control.Document.UpdateLayout();
-            //    //control.UpdateLayout();
-            //    //NotifyOfPropertyChange(() => control.Document);
-
-            //}
-
-
-
-            //control.DeleteReadOnlyRange();
-
-            //var startt = currentParagraph.EnumerateChildrenOfType<ReadOnlyRangeStart>().FirstOrDefault();
-
-
-
-            //control.Document = control.Document;
-            //startPosition.MoveToFirstPositionInParagraph();
-            //endPosition.MoveToLastPositionInParagraph();
-            //control.Document.Selection.SetSelectionStart(startPosition);
-            //control.Document.Selection.AddSelectionEnd(endPosition);
         }
     }
 }
