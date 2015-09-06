@@ -4,6 +4,11 @@
         <name>Telerik.Windows.Documents.Flow</name>
     </assembly>
     <members>
+        <member name="T:Telerik.Windows.Documents.Flow.FormatProviders.Docx.Model.Elements.Vector.WatermarkShapeElement">
+            <summary>
+            Represents a shape element in its specific use to contain a watermark for the docx model.
+            </summary>
+        </member>
         <member name="T:Telerik.Windows.Documents.Flow.FormatProviders.Html.GenericHtmlFonts">
             <summary>
             Represents a collection of generic fonts that will be used during Html import.
@@ -50,6 +55,13 @@
             </summary>
             <value>The image.</value>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Html.ImageExportingEventArgs.ExportSize">
+            <summary>
+            Gets or sets the value which indicates whether the 'width' and 'height' attributes of an 'image' element should be exported.
+            <para>The default value is true.</para>
+            </summary>
+            <value>The value indicating whether the image size should be exported.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Html.ImageExportingEventArgs.Source">
             <summary>
             Gets or sets the value which will be set to the 'src' attribute of the 'image' element.
@@ -61,6 +73,12 @@
             Gets or sets the value which will be set to the 'alt' attribute of the 'image' element.
             </summary>
             <value>The alternative text.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Html.ImageExportingEventArgs.Title">
+            <summary>
+            Gets or sets the 'title' attribute of the 'image' element.
+            </summary>
+            <value>The title.</value>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Html.ImageExportingEventArgs.Handled">
             <summary>
@@ -275,6 +293,13 @@
             Gets the generic fonts collection.
             </summary>
             <value>The generic fonts collection.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Html.HtmlImportSettings.ReplaceNonBreakingSpaces">
+            <summary>
+            Gets or sets whether non breaking space characters in strings should be replaced with whitespaces.
+            <para>The default value is false.</para>
+            </summary>
+            <value>Indicates whether non breaking spaces should be replaced.</value>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Html.HtmlImportSettings.DefaultStyleSheet">
             <summary>
@@ -28185,6 +28210,36 @@
             </summary>
             <value>To column.</value>
         </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.ChapterSeparatorType">
+            <summary>
+            Describes the chapter separator character which should be used to separate the chapter heading style index from the page number.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.ChapterSeparatorType.Colon">
+            <summary>
+            Colon separator character.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.ChapterSeparatorType.EmDash">
+            <summary>
+            Em dash separator character.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.ChapterSeparatorType.EnDash">
+            <summary>
+            En dash separator character.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.ChapterSeparatorType.Hyphen">
+            <summary>
+            Hyphen separator character.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.ChapterSeparatorType.Period">
+            <summary>
+            Period separator character.
+            </summary>
+        </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Collections.DocumentVariableCollection">
             <summary>
             Represents document variables collection.
@@ -28268,6 +28323,13 @@
             Sets the parent.
             </summary>
             <param name="newParent">The new parent.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.DocumentElementBase.EnumerateParentsOfType``1">
+            <summary>
+            Enumerates all parent elements of given type.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <returns></returns>
         </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.DocumentElementBase.GetDebuggerDisplayText">
             <summary>
@@ -29191,11 +29253,25 @@
             <param name="result">The result fragment.</param>
             <returns></returns>
         </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertSection">
+            <summary>
+            Inserts a new section.
+            </summary>
+            <returns>The inserted Section element.</returns>
+        </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertParagraph">
             <summary>
             Inserts a new paragraph.
             </summary>
             <returns>The inserted Paragraph element.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertImageInline(System.IO.Stream,System.String)">
+            <summary>
+            Inserts an inline image with its original size.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="extension">The extension.</param>
+            <returns>The inserted inline image.</returns>
         </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertImageInline(Telerik.Windows.Documents.Media.ImageSource,System.Windows.Size)">
             <summary>
@@ -29213,6 +29289,14 @@
             <param name="extension">The image extension.</param>
             <param name="size">The size.</param>
             <returns>The inserted image inline.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertFloatingImage(System.IO.Stream,System.String)">
+            <summary>
+            Inserts a floating image with its original size.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="extension">The extension.</param>
+            <returns>The inserted floating image.</returns>
         </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertFloatingImage(System.IO.Stream,System.String,System.Windows.Size)">
             <summary>
@@ -29318,6 +29402,124 @@
             Deletes the bookmark.
             </summary>
             <param name="bookmark">The bookmark.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertPermissionRange(Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials,Telerik.Windows.Documents.Flow.Model.InlineBase,Telerik.Windows.Documents.Flow.Model.InlineBase)">
+            <summary>
+            Inserts the permission range surrounding inline start and inline end.
+            </summary>
+            <param name="permissionRangeCredentials">The permission range credentials.</param>
+            <param name="inlineStart">The inline start.</param>
+            <param name="inlineEnd">The inline end.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertPermissionRange(Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials,Telerik.Windows.Documents.Flow.Model.TableCell)">
+            <summary>
+            Inserts the permission range surrounding table cell.
+            </summary>
+            <param name="permissionRangeCredentials">The permission range credentials.</param>
+            <param name="cell">The cell.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.InsertPermissionRange(Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials,Telerik.Windows.Documents.Flow.Model.TableRow)">
+            <summary>
+            Inserts the permission range surrounding table row.
+            </summary>
+            <param name="permissionRangeCredentials">The permission range credentials.</param>
+            <param name="row">The row.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.DeletePermissionRange(Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange)">
+            <summary>
+            Deletes the permission range.
+            </summary>
+            <param name="permission">The permission.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.Protect(System.String)">
+            <summary>
+            Protects the editor document from changes with specified password in read only protection mode.
+            </summary>
+            <param name="password">The password.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.Protect(System.String,Telerik.Windows.Documents.Flow.Model.Protection.ProtectionMode)">
+            <summary>
+            Protects the editor document from changes with specified password in desired protection mode.
+            </summary>
+            <param name="password">The password.</param>
+            <param name="protectionMode">The protection mode.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.Unprotect(System.String)">
+            <summary>
+            Tries to unprotect the editor document with specified password.
+            </summary>
+            <param name="password">The password.</param>
+            <returns><c>True</c> if the password is correct; otherwise, <c>False</c>.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.Unprotect">
+            <summary>
+            Unprotects the editor document.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.ReplaceText(System.String,System.String)">
+            <summary>
+            Replaces all occurrences of a specified text in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+            <param name="oldText">The searched text.</param>
+            <param name="newText">The replace text.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.ReplaceText(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Replaces all occurrences of a specified text in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+            <param name="oldText">The searched text.</param>
+            <param name="newText">The replace text.</param>
+            <param name="matchCase">Indicates whether the casing should be matched.</param>
+            <param name="matchWholeWord">Indicates whether only whole words should be matched.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.ReplaceText(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Replaces all occurrences of a matched text by the specified regex in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+            <param name="regex">The regex.</param>
+            <param name="newText">The replace text.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.ReplaceStyling(System.String,System.Action{Telerik.Windows.Documents.Flow.Model.Styles.CharacterProperties})">
+            <summary>
+            Replaces character properties of all occurrences of the searched text in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+            <param name="searchedText">The searched text.</param>
+            <param name="replacePropertiesAction">The action which replaces character properties.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.ReplaceStyling(System.String,System.Boolean,System.Boolean,System.Action{Telerik.Windows.Documents.Flow.Model.Styles.CharacterProperties})">
+            <summary>
+            Replaces character properties of all occurrences of the searched text in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+            <param name="searchedText">The searched text.</param>
+            <param name="matchCase">Indicates whether the casing should be matched.</param>
+            <param name="matchWholeWord">Indicates whether only whole words should be matched.</param>
+            <param name="replacePropertiesAction">The action which replaces character properties.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.ReplaceStyling(System.Text.RegularExpressions.Regex,System.Action{Telerik.Windows.Documents.Flow.Model.Styles.CharacterProperties})">
+            <summary>
+            Replaces character properties of all occurrences of a 
+            <para>matched text by the specified regex in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.</para> 
+            </summary>
+            <param name="regex">The regex.</param>
+            <param name="replacePropertiesAction">The action which replaces character properties.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.SetWatermark(Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark,Telerik.Windows.Documents.Flow.Model.Header)">
+            <summary>
+            Sets the watermark to the specified header.
+            </summary>
+            <param name="watermark">The watermark.</param>
+            <param name="header">The header.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.SetWatermark(Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark,Telerik.Windows.Documents.Flow.Model.Section,Telerik.Windows.Documents.Flow.Model.HeaderFooterType)">
+            <summary>
+            Sets the watermark to the header of the specified type associated with the specified section.
+            </summary>
+            <param name="watermark">The watermark.</param>
+            <param name="section">The section.</param>
+            <param name="headerType">Type of the header.</param>
         </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.Editing.RadFlowDocumentEditor.MoveToParagraphStart(Telerik.Windows.Documents.Flow.Model.Paragraph)">
             <summary>
@@ -29541,6 +29743,12 @@
             <para>For predefined lists use <see cref="M:Telerik.Windows.Documents.Flow.Model.Lists.ListCollection.Add(Telerik.Windows.Documents.Flow.Model.Lists.ListTemplateType)"/> method.</para>
             </summary>
         </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Lists.List.Clone">
+            <summary>
+            Creates deep copy of this list.
+            </summary>
+            <returns>The cloned list.</returns>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Lists.List.Id">
             <summary>
             Gets the ID of the list.
@@ -29664,6 +29872,12 @@
             <summary>
             Establishes functionality of list level.
             </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Lists.ListLevel.Clone(Telerik.Windows.Documents.Flow.Model.Lists.List)">
+            <summary>
+            Creates deep copy of this list level, associated to <paramref name="ownerList"/>.
+            </summary>
+            <param name="ownerList">The owner list.</param>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Lists.ListLevel.StartIndex">
             <summary>
@@ -30157,6 +30371,652 @@
             <summary>
             Style of the source document will be renamed and used.
             </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.PageNumberingSettings">
+            <summary>
+            Represents page numbering settings for all page numbers in the content of the current section.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.PageNumberingSettings.ChapterSeparatorCharacter">
+            <summary>
+            Gets or sets the chapter separator character that shall appear between the chapter heading style index and the page number.
+            </summary>
+            <value>The chapter separator character.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.PageNumberingSettings.ChapterHeadingStyleIndex">
+            <summary>
+            Gets or sets the index of the chapter heading style.
+            </summary>
+            <value>The index of the chapter heading style.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.PageNumberingSettings.PageNumberFormat">
+            <summary>
+            Gets or sets the page number format for the page numbering in the current section.
+            </summary>
+            <value>The page number format.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.PageNumberingSettings.StartingPageNumber">
+            <summary>
+            Gets or sets the starting page number.
+            <para>This number appears on the first page of the section.</para>
+            </summary>
+            <value>The starting page number.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty`1">
+            <summary>
+            Establishes common functionality for generic style properties.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty">
+            <summary>
+            Establishes common properties and functionality for style properties.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.GetLocalValueAsObject">
+            <summary>
+            Gets the local value as object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.GetActualValueAsObject">
+            <summary>
+            Gets the actual value as object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.SetValueAsObject(System.Object)">
+            <summary>
+            Sets the local value as object.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.ClearValue">
+            <summary>
+            Clears the local value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.PropertyDefinition">
+            <summary>
+            Gets the property definition.
+            </summary>
+            <value>The property definition.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.HasLocalValue">
+            <summary>
+            Gets a value indicating whether the style property has local value.
+            </summary>
+            <value>The has local value.</value>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty`1.GetActualValue">
+            <summary>
+            Gets the actual value.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty`1.LocalValue">
+            <summary>
+            Gets or sets the local value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.StylePropertyBase`1.LocalValue">
+            <summary>
+            Gets or sets the local value.
+            </summary>
+            <param name="value">The value.</param>
+            <value></value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange">
+            <summary>
+            Represents permission range for document protection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.#ctor(Telerik.Windows.Documents.Flow.Model.RadFlowDocument,Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange"/> class.
+            </summary>
+            <param name="document">The document.</param>
+            <param name="permissionRangeCredentials">The permission range credentials.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.#ctor(Telerik.Windows.Documents.Flow.Model.RadFlowDocument,Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange"/> class.
+            </summary>
+            <param name="document">The document.</param>
+            <param name="permissionRangeCredentials">The permission range credentials.</param>
+            <param name="fromColumn">From column.</param>
+            <param name="toColumn">To column.</param>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.Document">
+            <summary>
+            Gets the associated document.
+            </summary>
+            <value>The document.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.Credentials">
+            <summary>
+            Gets the permission range credentials.
+            </summary>
+            <value>The permission range credentials.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.Start">
+            <summary>
+            Gets the permission range start.
+            </summary>
+            <value>The permission range start.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.End">
+            <summary>
+            Gets the permission range end.
+            </summary>
+            <value>The permission range end.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.FromColumn">
+            <summary>
+            Gets the index of the first column in the current row which is part of the permission.
+            </summary>
+            <value>From column.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange.ToColumn">
+            <summary>
+            Gets the index of the last column in the current row which is part of the permission.
+            </summary>
+            <value>To column.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials">
+            <summary>
+            Describes information for <see cref="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRange"/> credentials.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials"/> class.
+            </summary>
+            <param name="editor">The editor. Could be defined as DOMAIN\name, name or email.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials.#ctor(Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials"/> class.
+            </summary>
+            <param name="editingGroup">The editing group.</param>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials.Editor">
+            <summary>
+            Gets or sets the editor.
+            </summary>
+            <value>The editor.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeCredentials.EditingGroup">
+            <summary>
+            Gets or sets the editing group.
+            </summary>
+            <value>The editing group.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup">
+            <summary>
+            Describes possible types of permission for user groups.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.None">
+            <summary> 
+            Specifies that none of the users that open the document shall be allowed to edit range permissions using this editing group when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.Everyone">
+            <summary> 
+            Specifies that all users that open the document shall be allowed to edit range permissions using this editing group when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.Administrators">
+            <summary> 
+            Specifies that only user(s) who the viewing application associates with the Administrators group shall be allowed to edit the contents 
+            between the start and end permission ranges when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.Contributors">
+            <summary> 
+            Specifies that only user(s) who the viewing application associates with the Contributors group shall be allowed to edit the contents 
+            between the start and end permission ranges when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.Editors">
+            <summary> 
+            Specifies that only user(s) who the viewing application associates with the Editors group shall be allowed to edit the contents 
+            between the start and end permission ranges when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.Owners">
+            <summary> 
+            Specifies that only user(s) who the viewing application associates with the Owners group shall be allowed to edit the contents 
+            between the start and end permission ranges when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.EditingGroup.Current">
+            <summary> 
+            Specifies that only user(s) who the viewing application associates with the Current group shall be allowed to edit the contents 
+            between the start and end permission ranges when document protection is being enforced.
+            </summary> 
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionAlgorithmNames">
+            <summary>
+            Describes supported protection algorithm names.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionAlgorithmNames.SHA1">
+            <summary>
+            Represents the SHA-1 algorithm name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionAlgorithmNames.SHA256">
+            <summary>
+            Represents the SHA-256 algorithm name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionAlgorithmNames.SHA384">
+            <summary>
+            Represents the SHA-384 algorithm name.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionAlgorithmNames.SHA512">
+            <summary>
+            Represents the SHA-512 algorithm name.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionMode">
+            <summary>
+            Describes possible editing restrictions.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionMode.NoProtection">
+            <summary> 
+            Specifies that no editing restrictions are applied.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionMode.AllowComments">
+            <summary> 
+            Specifies that working with comments is allowed in addition to editing in permission ranges.
+            </summary> 
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionMode.ReadOnly">
+            <summary> 
+            Specifies that editing is allowed only in permission regions.
+            </summary> 
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings">
+            <summary>
+            Contains all protection settings.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings.ProtectionMode">
+            <summary>
+            Gets or sets the protection mode.
+            </summary>
+            <value>The protection mode.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings.Enforced">
+            <summary>
+            Gets or sets the enforcement of document protection.
+            </summary>
+            <value>The enforced.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings.AlgorithmName">
+            <summary>
+            Gets or sets the algorithm name. Use predefined values from <see cref="T:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionAlgorithmNames"/>.
+            </summary>
+            <value>The name of the algorithm. The protection algorithm.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings.Salt">
+            <summary>
+            Gets or sets the salt.
+            </summary>
+            <value>The salt.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings.Hash">
+            <summary>
+            Gets or sets the password hash.
+            </summary>
+            <value>The hash.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.ProtectionSettings.SpinCount">
+            <summary>
+            Gets or sets the spin count.
+            </summary>
+            <value>The spin count.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection">
+            <summary>
+            Defines constants which specify the text flow direction in a <see cref="T:Telerik.Windows.Documents.Flow.Model.TableCell"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection.LeftToRightTopToBottom">
+            <summary>
+            Specifies the text shall flow from left to right horizontally and from top to bottom vertically.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection.BottomToTopLeftToRight">
+            <summary>
+            Specifies the text shall flow from bottom to top vertically and from left to right horizontally.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection.TopToBottomRightToLeft">
+            <summary>
+            Specifies the text shall flow from top to bottom vertically and from right to left horizontally.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection.LeftToRightTopToBottomRotated">
+            <summary>
+            Specifies the text shall flow from left to right horizontally and from top to bottom vertically. This flow is rotated.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection.TopToBottomLeftToRightRotated">
+            <summary>
+            Specifies the text shall flow from top to bottom vertically and from left to right horizontally. This flow is rotated.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TextDirection.TopToBottomRightToLeftRotated">
+            <summary>
+            Specifies the text shall flow from top to bottom vertically and from right to left horizontally. This flow is rotated.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection">
+            <summary>
+            Represents a collection of watermark elements.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.#ctor(Telerik.Windows.Documents.Flow.Model.RadFlowDocument)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection"/> class.
+            </summary>
+            <param name="document">The document.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.Add(Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark)">
+            <summary>
+            Adds the specified watermark to the collection.
+            </summary>
+            <param name="watermark">The watermark.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.Remove(Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark)">
+            <summary>
+            Removes the specified watermark from the collection.
+            </summary>
+            <param name="watermark">The watermark.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.Clear">
+            <summary>
+            Clears this collection.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be
+            used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.System#Collections#Generic#IEnumerable{Telerik#Windows#Documents#Flow#Model#Watermarks#Watermark}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can
+            be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkCollection.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark"/> at the specified index.
+            </summary>
+            <value>The watermark.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection">
+            <summary>
+            Represents a collection of <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStop"/> elements. This class is immutable.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.#ctor(System.Collections.Generic.IEnumerable{Telerik.Windows.Documents.Flow.Model.Styles.TabStop})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection"/> class with collection of given <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStop"/> elements.
+            </summary>
+            <param name="tabStops">The tab stops.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.op_Equality(Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection,Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection)">
+            <summary>
+            Determines whether the specified tab stop collections are equal.
+            </summary>
+            <returns>True if the tab stop collections are equal.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.op_Inequality(Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection,Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection)">
+            <summary>
+            Determines whether the specified tab stop collections are different.
+            </summary>
+            <returns>True if the tab stop collections are different.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.Insert(Telerik.Windows.Documents.Flow.Model.Styles.TabStop)">
+            <summary>
+            Returns a new instance of <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection"/> class in which a specified tab stop is inserted.
+            </summary>
+            <param name="tabStop">The tab stop.</param>
+            <returns>The tab stop collection containing the added tab stop.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.Remove(Telerik.Windows.Documents.Flow.Model.Styles.TabStop)">
+            <summary>
+            Returns a new instance of <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection"/> class in which a specified tab stop is removed.
+            </summary>
+            <param name="tabStop">The tab stop.</param>
+            <returns>The tab stop collection from which the specified tab stop is removed.</returns>                
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can
+            be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be
+            used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal
+            to the current <see cref="T:System.Object" />.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>
+            Returns <c>true</c> if the specified <see cref="T:System.Object" /> is equal to the
+            current <see cref="T:System.Object" />; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>A hash code for the current <see cref="T:System.Object" />.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.TabStopCollection.Count">
+            <summary>
+            Gets the count of tab stop elements in the collection.
+            </summary>
+            <value>The count.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.Core.IntervalMap`2">
+            <summary>
+            Represents a collection of intervals mapped to objects.
+            </summary>
+            <typeparam name="TKey">The type of the T key.</typeparam>
+            <typeparam name="V">The type of the V.</typeparam>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.Core.IntervalMap`2.Add(`0,`0,`1)">
+            <summary>
+            Adds the specified interval mapped to the value.
+            </summary>
+            <param name="intervalStart">The interval start.</param>
+            <param name="intervalEnd">The interval end.</param>
+            <param name="mappedValue">The mapped value.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.Core.IntervalMap`2.GetValueFromIntervalPoint(`0)">
+            <summary>
+            Gets the value from an interval point.
+            </summary>
+            <param name="intervalPoint">The interval point.</param>
+            <returns>The value which is mapped to the interval from the interval point.</returns>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase">
+            <summary>
+            Represents an abstraction of a replace handler.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase.BeginReplace(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Called before the replacement of all matches in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/> begins.
+            </summary>
+            <param name="regex">The regex by which the match is found.</param>
+            <param name="replaceText">The replace text.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase.EndReplace">
+            <summary>
+            Called after the replacement of all matches in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/> ends.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase.ReplaceMatch(Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch)">
+            <summary>
+            Replaces matched text in a run.
+            </summary>
+            <param name="runTextMatch">The match info in a text of a run.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase.BeginReplaceCore(System.String)">
+            <summary>
+            Called before the replacement of all matches in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/> begins.
+            </summary>
+            <param name="replaceText">The replace text.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase.EndReplaceCore">
+            <summary>
+            Called after the replacement of all matches in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/> ends.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.TextSearch.ReplaceHandlerBase.Regex">
+            <summary>
+            Gets or sets the regex by which the results are matched.
+            </summary>
+            <value>The regex.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.FindTextService">
+            <summary>
+            Represents a service for finding a text in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.ReplacePropertiesHandler">
+            <summary>
+            Represents a handler which replace character properties of <see cref="T:Telerik.Windows.Documents.Flow.Model.Run"/> elements with replace text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplacePropertiesHandler.#ctor(System.Action{Telerik.Windows.Documents.Flow.Model.Styles.CharacterProperties})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.TextSearch.ReplacePropertiesHandler"/> class.
+            </summary>
+            <param name="replacePropertiesAction">The replace character properties action.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplacePropertiesHandler.ReplaceMatch(Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch)">
+            <summary>
+            Replaces matched text in a run.
+            </summary>
+            <param name="runTextMatch">The match info in a text of a run.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplacePropertiesHandler.EndReplaceCore">
+            <summary>
+            The method is called after the replacement of all found matches.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.ReplaceTextHandler">
+            <summary>
+            Represents a handler to replace text.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceTextHandler.ReplaceMatch(Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch)">
+            <summary>
+            Replaces matched text in a run.
+            </summary>
+            <param name="runTextMatch">The match info in a text of a run.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.ReplaceTextHandler.BeginReplaceCore(System.String)">
+            <summary>
+            Called before the replacement of all matches in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/> begins.
+            </summary>
+            <param name="replaceText">The replace text.</param>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.TextSearch.ReplaceTextHandler.ReplaceText">
+            <summary>
+            Gets or sets the replace text.
+            </summary>
+            <value>The replace text.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.ReplaceTextService">
+            <summary>
+            Represents a service for replacing a text in found matches in a <see cref="T:Telerik.Windows.Documents.Flow.Model.RadFlowDocument"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch">
+            <summary>
+            Represents a class containing information which matches given criteria.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch.Run">
+            <summary>
+            Gets the run containing part or full matched text.
+            </summary>
+            <value>The run.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch.StartIndex">
+            <summary>
+            Gets the index where the matched text in the run starts.
+            </summary>
+            <value>The start index of the match.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch.Length">
+            <summary>
+            Gets the length of the matched text in the run.
+            </summary>
+            <value>The length of the match.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.TextSearch.RunTextMatch.FullMatchText">
+            <summary>
+            Gets the text which is matched during the search.
+            </summary>
+            <value>The full match text.</value>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.RunMatchHelper.GetMatchedIndexInRun(Telerik.Windows.Documents.Flow.Model.Run,System.String,System.Int32)">
+            <summary>
+            Gets the matched index in run.
+            </summary>
+            <param name="matchedRun">The matched run.</param>
+            <param name="searchedText">The searched text.</param>
+            <param name="startIndex">The index where the matching index searching shall begin.</param>
+            <returns>The index of the run text where the searched text starts matching.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.TextSearch.RunMatchHelper.GetMatchedTextLengthInRun(Telerik.Windows.Documents.Flow.Model.Run,System.String,System.Int32)">
+            <summary>
+            Gets the matched text length in run.
+            </summary>
+            <param name="matchedRun">The matched run.</param>
+            <param name="searchedText">The searched text.</param>
+            <param name="matchIndex">Start index of the match of the searched text in the run.</param>
+            <returns>The length of matched text in the run.</returns>
         </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.TextWrappingRestartLocation">
             <summary>
@@ -30885,6 +31745,11 @@
             </summary>
             <value>The name of the element.</value>
         </member>
+        <member name="T:Telerik.Windows.Documents.Flow.FormatProviders.Docx.Model.Elements.Document.TabElement">
+            <summary>
+            Represents an element which is used as a tab stop in a paragraph's properties and as a tab in a run content.
+            </summary>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.FormatProviders.Docx.Model.Elements.Document.TablePropertiesElement.ElementName">
             <summary>
             Gets the name of the element.
@@ -31459,6 +32324,40 @@
             which defines the end of the field codes and the start of the field result for a complex field.
             </summary>
         </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeEnd">
+            <summary>
+            Defines permission range end annotation.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeEnd.Permission">
+            <summary>
+            Gets the associated permission.
+            </summary>
+            <value>The permission.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeEnd.Type">
+            <summary>
+            Gets the type of the element.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeStart">
+            <summary>
+            Defines permission range start annotation.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeStart.Permission">
+            <summary>
+            Gets the associated permission.
+            </summary>
+            <value>The permission.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Protection.PermissionRangeStart.Type">
+            <summary>
+            Gets the type of the element.
+            </summary>
+            <value>The type.</value>
+        </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.BlockBase">
             <summary>
             An abstract class that provides a base for all block-level flow content elements.
@@ -31789,6 +32688,12 @@
             Gets the style property used to get or set a value indicating the view type of the document.
             </summary>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.DocumentProperties.DefaultTabStopWidth">
+            <summary>
+            Gets the style property used to determine the default width value which shall be used when a tab stop should be generated.
+            </summary>
+            <value>The default width of the tab stop.</value>
+        </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.IElementWithProperties">
             <summary>
             Establishes common functionality for elements containing their properties in DocumentElementPropertiesBase.
@@ -31885,11 +32790,42 @@
             Gets the section type property definition.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Section.VerticalAlignmentPropertyDefinition">
+            <summary>
+            Gets the vertical alignment property definition.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Section.ChapterSeparatorCharacterPropertyDefinition">
+            <summary>
+            Gets the chapter separator character property definition.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Section.ChapterHeadingStyleIndexPropertyDefinition">
+            <summary>
+            Gets the chapter heading style index property definition.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Section.PageNumberFormatPropertyDefinition">
+            <summary>
+            Gets the page number format property definition.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Section.StartingPageNumberPropertyDefinition">
+            <summary>
+            Gets the starting page number property definition.
+            </summary>
+        </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.Section.#ctor(Telerik.Windows.Documents.Flow.Model.RadFlowDocument)">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Section"/> class.
             </summary>
             <param name="document">The document in which the element will be added.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Section.Rotate(Telerik.Windows.Documents.Model.PageOrientation)">
+            <summary>
+            Rotates the page orientation and changes the size and margins of the related section.
+            </summary>
+            <param name="orientation">The page orientation.</param>
         </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.Section.Clone">
             <summary>
@@ -31928,6 +32864,12 @@
             </summary>
             <value>The properties.</value>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Section.PageNumberingSettings">
+            <summary>
+            Gets the page numbering settings.
+            </summary>
+            <value>The page numbering settings.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Section.HasDifferentFirstPageHeaderFooter">
             <summary>
             Gets or sets a value indicating if the section has different header/footer for its first page.
@@ -31936,7 +32878,7 @@
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Section.PageOrientation">
             <summary>
-            Gets or sets the page orientation.
+            Gets or sets the page orientation. Specifies the actual paper size to use when printing the file.
             </summary>
             <value>The page orientation.</value>
         </member>
@@ -31972,6 +32914,12 @@
             Gets or sets the type of the section.
             </summary>
             <value>The type of the section.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Section.VerticalAlignment">
+            <summary>
+            Gets or sets the vertical alignment.
+            </summary>
+            <value>The vertical alignment.</value>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Section.Type">
             <summary>
@@ -32129,6 +33077,16 @@
         <member name="F:Telerik.Windows.Documents.Flow.Model.DocumentElementType.CommentRangeEnd">
             <summary>
             Comment range end element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.DocumentElementType.PermissionRangeStart">
+            <summary>
+            Permission range start element.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.DocumentElementType.PermissionRangeEnd">
+            <summary>
+            Permission range end element.
             </summary>
         </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Fields.FieldInfo">
@@ -32337,6 +33295,12 @@
             <param name="document">The document.</param>
             <param name="section">The section.</param>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Header.Watermarks">
+            <summary>
+            Gets the watermarks for this header.
+            </summary>
+            <value>The watermarks.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Header.Type">
             <summary>
             Gets the type of the element.
@@ -32403,7 +33367,7 @@
         </member>
         <member name="F:Telerik.Windows.Documents.Flow.Model.Paragraph.BordersPropertyDefinition">
             <summary>
-            Gets the left border property definition.
+            Gets the paragraph borders property definition.
             </summary>
         </member>
         <member name="F:Telerik.Windows.Documents.Flow.Model.Paragraph.FlowDirectionPropertyDefinition">
@@ -32494,6 +33458,11 @@
         <member name="F:Telerik.Windows.Documents.Flow.Model.Paragraph.RightIndentPropertyDefinition">
             <summary>
             Gets the right indent property definition.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Paragraph.TabStopsPropertyDefinition">
+            <summary>
+            Gets the tab stops property definition.
             </summary>
         </member>
         <member name="F:Telerik.Windows.Documents.Flow.Model.Paragraph.BackgroundColorPropertyDefinition">
@@ -32603,6 +33572,12 @@
             </summary>
             <returns>The default value is <c>false</c>.</returns>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Paragraph.TabStops">
+            <summary>
+            Gets or sets the tab stops of the paragraph.
+            </summary>
+            <value>The tab stops.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Paragraph.Shading">
             <summary>
             Gets the shading which shall be applied to the extents of the paragraph.
@@ -32690,6 +33665,11 @@
             Holds the property definition for the ViewType property.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.RadFlowDocument.DefaultTabStopWidthPropertyDefinition">
+            <summary>
+            Holds the property definition for the DefaultTabStopWidth property.
+            </summary>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.RadFlowDocument.DefaultStyle">
             <summary>
             Gets the default styling of the document.
@@ -32719,6 +33699,12 @@
             <value>
             The type of the view.
             </value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.RadFlowDocument.DefaultTabStopWidth">
+            <summary>
+            Gets or sets the default width of the tab stop.
+            </summary>
+            <value>The default width of the tab stop.</value>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.RadFlowDocument.Document">
             <summary>
@@ -32771,6 +33757,12 @@
             Gets the the document variables.
             </summary>
             <value>The document variables.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.RadFlowDocument.ProtectionSettings">
+            <summary>
+            Gets or sets the protection settings.
+            </summary>
+            <value>The protection settings.</value>
         </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Run">
             <summary>
@@ -32875,6 +33867,11 @@
             Gets the underline pattern property definition.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Run.FlowDirectionPropertyDefinition">
+            <summary>
+            Gets the flow direction property definition.
+            </summary>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Run.Telerik#Windows#Documents#Flow#Model#Styles#IElementWithProperties#Properties">
             <summary>
             Gets the properties.
@@ -32958,6 +33955,12 @@
             Gets the underline.
             </summary>
             <value>The underline.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Run.FlowDirection">
+            <summary>
+            Gets or sets the flow direction.
+            </summary>
+            <returns>The default value is <c>LeftToRight</c></returns>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Run.Type">
             <summary>
@@ -33471,6 +34474,12 @@
             </summary>
             <returns>The default value is <c>None</c></returns>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.CharacterProperties.FlowDirection">
+            <summary>
+            Gets style property used to get or set the flow direction.
+            </summary>
+            <returns>The default value is <c>LeftToRight</c></returns>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.CharacterProperties.Telerik#Windows#Documents#Flow#Model#Styles#IPropertiesWithShading#Document">
             <summary>
             Gets the document.
@@ -33512,63 +34521,6 @@
             Exact height.
             </summary>
         </member>
-        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty`1">
-            <summary>
-            Establishes common functionality for generic style properties.
-            </summary>
-        </member>
-        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty">
-            <summary>
-            Establishes common properties and functionality for style properties.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.GetLocalValueAsObject">
-            <summary>
-            Gets the local value as object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.GetActualValueAsObject">
-            <summary>
-            Gets the actual value as object.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.SetValueAsObject(System.Object)">
-            <summary>
-            Sets the local value as object.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.ClearValue">
-            <summary>
-            Clears the local value.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.PropertyDefinition">
-            <summary>
-            Gets the property definition.
-            </summary>
-            <value>The property definition.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty.HasLocalValue">
-            <summary>
-            Gets a value indicating whether the style property has local value.
-            </summary>
-            <value>The has local value.</value>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty`1.GetActualValue">
-            <summary>
-            Gets the actual value.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStyleProperty`1.LocalValue">
-            <summary>
-            Gets or sets the local value.
-            </summary>
-            <param name="value">The value.</param>
-        </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.Core.IStylePropertyDefinition">
             <summary>
             Establishes common properties for style property definition.
@@ -33609,13 +34561,6 @@
             Gets the validation object for the current style property definition.
             </summary>
             <value>The validation.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Core.StylePropertyBase`1.LocalValue">
-            <summary>
-            Gets or sets the local value.
-            </summary>
-            <param name="value">The value.</param>
-            <value></value>
         </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.OutlineLevel">
             <summary>
@@ -34023,6 +34968,12 @@
             </summary>
             <returns>The default is <c>true</c>.</returns>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.ParagraphProperties.TabStops">
+            <summary>
+            Gets the style property used to get or set the tab stops in the paragraph.
+            </summary>
+            <value>The tab stops.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.ParagraphProperties.ParagraphMarkerProperties">
             <summary>
             Gets style property used to get or set the formatting properties of the glyph used to represent this paragraph.
@@ -34161,6 +35112,37 @@
             Gets the section type property.
             </summary>
             <value>The section type property.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.SectionProperties.VerticalAlignment">
+            <summary>
+            Gets the vertical alignment property.
+            </summary>
+            <value>The vertical alignment property.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.SectionProperties.ChapterSeparatorCharacter">
+            <summary>
+            Gets the chapter separator character that shall appear between the chapter heading style index and the page number.
+            </summary>
+            <value>The chapter separator character.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.SectionProperties.ChapterHeadingStyleIndex">
+            <summary>
+            Gets the index of the chapter heading style.
+            </summary>
+            <value>The index of the chapter heading style.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.SectionProperties.PageNumberFormat">
+            <summary>
+            Gets the page number format for the page numbering in the current section.
+            </summary>
+            <value>The page number format.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.SectionProperties.StartingPageNumber">
+            <summary>
+            Gets the starting page number.
+            <para>This number appears on the first page of the section.</para>
+            </summary>
+            <value>The starting page number.</value>
         </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.SectionType">
             <summary>
@@ -34704,7 +35686,7 @@
         </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.TableCell">
             <summary>
-            A flow document element that defines a cell of content within a <see cref="T:Telerik.Windows.Documents.Flow.Model.Table"/>.
+            A flow document element that defines a cell of content within a <see cref="P:Telerik.Windows.Documents.Flow.Model.TableCell.Table"/>.
             </summary>
         </member>
         <member name="F:Telerik.Windows.Documents.Flow.Model.TableCell.BordersPropertyDefinition">
@@ -34762,6 +35744,11 @@
             Gets the vertical alignment property definition.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.TableCell.TextDirectionPropertyDefinition">
+            <summary>
+            Gets the text direction property definition.
+            </summary>
+        </member>
         <member name="M:Telerik.Windows.Documents.Flow.Model.TableCell.#ctor(Telerik.Windows.Documents.Flow.Model.RadFlowDocument)">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.TableCell"/> class.
@@ -34803,6 +35790,12 @@
             Gets the parent row of the cell.
             </summary>
             <value>The row.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.TableCell.Table">
+            <summary>
+            Gets the parent table of the cell.
+            </summary>
+            <value>The table.</value>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.TableCell.Borders">
             <summary>
@@ -34857,6 +35850,12 @@
             Gets or sets the vertical alignment.
             </summary>
             <returns>The default value is <c>Top</c>.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.TableCell.TextDirection">
+            <summary>
+            Gets or sets the text direction.
+            </summary>
+            <value>The text direction.</value>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.TableCell.GridColumnIndex">
             <summary>
@@ -35009,6 +36008,12 @@
             </summary>
             <param name="stylePropertyDefinition">The style property definition.</param>
             <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.Style.Clone">
+            <summary>
+            Creates deep copy of this style.
+            </summary>
+            <returns>The cloned style.</returns>
         </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.Style.Id">
             <summary>
@@ -35551,6 +36556,12 @@
             </summary>
             <returns>The default value is <c>Top</c>.</returns>
         </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.TableCellProperties.TextDirection">
+            <summary>
+            Gets the style property used to get or set the text direction.
+            </summary>
+            <value>The text direction.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.TableCellProperties.Telerik#Windows#Documents#Flow#Model#Styles#IPropertiesWithShading#Document">
             <summary>
             Gets the document.
@@ -35972,6 +36983,144 @@
             The width should be zero.
             </summary>
         </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStop">
+            <summary>
+            Defines a tab stop element. This class is immutable.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStop"/> class.
+            </summary>
+            <param name="position">The position.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.#ctor(System.Double,Telerik.Windows.Documents.Flow.Model.Styles.TabStopType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStop"/> class.
+            </summary>
+            <param name="position">The position.</param>
+            <param name="type">The tab stop type.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.#ctor(System.Double,Telerik.Windows.Documents.Flow.Model.Styles.TabStopType,Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStop"/> class.
+            </summary>
+            <param name="position">The position.</param>
+            <param name="type">The tab stop type.</param>
+            <param name="leader">The tab stop leader.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.op_Equality(Telerik.Windows.Documents.Flow.Model.Styles.TabStop,Telerik.Windows.Documents.Flow.Model.Styles.TabStop)">
+            <summary>
+            Determines whether the specified tab stops are equal.
+            </summary>
+            <returns>True if the tab stops are equal.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.op_Inequality(Telerik.Windows.Documents.Flow.Model.Styles.TabStop,Telerik.Windows.Documents.Flow.Model.Styles.TabStop)">
+            <summary>
+            Determines whether the specified tab stops are different.
+            </summary>
+            <returns>True if the tab stops are different.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal
+            to the current <see cref="T:System.Object" />.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>
+            Returns <c>true</c> if the specified <see cref="T:System.Object" /> is equal to the
+            current <see cref="T:System.Object" />; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>A hash code for the current <see cref="T:System.Object" />.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.Position">
+            <summary>
+            Gets or sets the position of the tab stop.
+            </summary>
+            <value>The position in points.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.Type">
+            <summary>
+            Gets or sets the tab stop type.
+            </summary>
+            <value>The tab stop type.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Styles.TabStop.Leader">
+            <summary>
+            Gets or sets the tab stop leader.
+            </summary>
+            <value>The tab stop leader.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader">
+            <summary>
+            Defines tab stop leader types.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader.None">
+            <summary> 
+            No tab stop leader type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader.Dot">
+            <summary> 
+            Dot tab stop leader type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader.Hyphen">
+            <summary> 
+            Hyphen tab stop leader type. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader.Underscore">
+            <summary>
+            Underscore tab stop leader type. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopLeader.MiddleDot">
+            <summary> 
+            MiddleDot tab stop leader type.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType">
+            <summary>
+            Defines tab stop types.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType.Left">
+            <summary> 
+            Left aligned tab. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType.Center">
+            <summary> 
+            Center aligned tab. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType.Right">
+            <summary> 
+            Right aligned tab. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType.Decimal">
+            <summary> 
+            Decimal tab stop. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType.Bar">
+            <summary> 
+            Specifies that the current tab is a bar tab. 
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Styles.TabStopType.Clear">
+            <summary> 
+            Clears an inherited tab stop.
+            </summary>
+        </member>
         <member name="T:Telerik.Windows.Documents.Flow.Model.Styles.Underline">
             <summary>
             Defines an underline settings. 
@@ -36158,6 +37307,154 @@
             <param name="dictionary">The dictionary.</param>
             <param name="key">The key.</param>
             <returns></returns>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark">
+            <summary>
+            Represents watermark which can be applied to pages in a <see cref="T:Telerik.Windows.Documents.Flow.Model.Section"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.#ctor(Telerik.Windows.Documents.Flow.Model.Watermarks.ImageWatermarkSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark"/> class which represents image watermark.
+            </summary>
+            <param name="imageWatermarkSettings">The image watermark settings.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.#ctor(Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark"/> class which represents text watermark.
+            </summary>
+            <param name="textWatermarkSettings">The text watermark settings.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.Clone">
+            <summary>
+            Creates a deep copy of this element, not associated with this document.
+            </summary>
+            <returns>A clone of the watermark.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.WatermarkType">
+            <summary>
+            Gets the type of the watermark.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.ImageSettings">
+            <summary>
+            Gets the image watermark settings. This property is initialized only if the watermark is image watermark.
+            </summary>
+            <value>The image settings.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.TextSettings">
+            <summary>
+            Gets the text watermark settings. This property is initialized only if the watermark is text watermark.
+            </summary>
+            <value>The text settings.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark.Document">
+            <summary>
+            Gets the document associated with the watermark.
+            </summary>
+            <value>The document.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Watermarks.ImageWatermarkSettings">
+            <summary>
+            Specifies image settings for the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark"/> class.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkSettingsBase">
+            <summary>
+            Represents a base class for the watermark settings classes.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkSettingsBase.Watermark">
+            <summary>
+            Gets or sets the watermark associated with the settings.
+            </summary>
+            <value>The watermark.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkSettingsBase.Width">
+            <summary>
+            Gets or sets the width of the watermark element.
+            </summary>
+            <value>The width.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkSettingsBase.Height">
+            <summary>
+            Gets or sets the height of the watermark element.
+            </summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkSettingsBase.Angle">
+            <summary>
+            Gets or sets the angle of the watermark element towards the horizontal direction.
+            </summary>
+            <value>The angle.</value>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.ImageWatermarkSettings.Clone">
+            <summary>
+            Creates a deep copy of this element.
+            </summary>
+            <returns>A clone of the settings.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.ImageWatermarkSettings.ImageSource">
+            <summary>
+            Gets or sets the source of the image.
+            </summary>
+            <value>The source of the image.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings">
+            <summary>
+            Specifies text settings for the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings.Clone">
+            <summary>
+            Creates a deep copy of this element.
+            </summary>
+            <returns>A clone of the settings.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings.Text">
+            <summary>
+            Gets or sets the text.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings.FontFamily">
+            <summary>
+            Gets or sets the font family.
+            </summary>
+            <value>The font family.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings.ForegroundColor">
+            <summary>
+            Gets or sets the foreground color of the text.
+            </summary>
+            <value>The the foreground color.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Flow.Model.Watermarks.TextWatermarkSettings.Opacity">
+            <summary>
+            Gets or sets the opacity of the text.
+            </summary>
+            <value>The opacity is a double number between 0 and 1.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkType">
+            <summary>
+            Describes the type of a <see cref="T:Telerik.Windows.Documents.Flow.Model.Watermarks.Watermark"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkType.Image">
+            <summary>
+            Watermark containing image.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Flow.Model.Watermarks.WatermarkType.Text">
+            <summary>
+            Watermark containing text.
+            </summary>
         </member>
     </members>
 </doc>

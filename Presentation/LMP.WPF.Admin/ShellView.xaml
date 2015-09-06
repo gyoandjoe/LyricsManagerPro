@@ -19,29 +19,40 @@
         
         <telerik:RadRichTextBoxRibbonUI x:Name="radRichTextBoxRibbonUI" HorizontalAlignment="Left"  VerticalAlignment="Top" DataContext="SongEditor" >
             <telerik:RadRibbonTab Header="Inicio" telerik:ScreenTip.Title="Inicios" telerik:ScreenTip.Description="Inicio">
+
+                <telerik:RadRibbonGroup Header="Administración de Letras">
+                    <telerik:RadRibbonButton x:Name="LoadSongElement" Content="Abrir Letra" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="LoadLyrics">
+                                    <cal:Parameter Value="$eventArgs" />
+                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadRibbonButton>
+                    
+                    <telerik:RadRibbonButton x:Name="SaveSongElement" Content="Guardar" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="SaveLyrics">
+                                    <cal:Parameter Value="$eventArgs" />
+                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 
-            <telerik:RadRibbonTab Header="Letra" telerik:ScreenTip.Title="Inicios" telerik:ScreenTip.Description="Operaciones sobre letra">
-                <telerik:RadRibbonGroup Header="Administración de Inicios">
+            <telerik:RadRibbonTab Header="Letra" telerik:ScreenTip.Title="Lyrics" telerik:ScreenTip.Description="Operaciones sobre letra" >
+                <telerik:RadRibbonGroup Header="Edicion de Letras">
                     <telerik:RadRibbonButton x:Name="AddVerso" Content="Verso" >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <cal:ActionMessage MethodName="AddVerso">
                                     <cal:Parameter Value="$eventArgs" />
                                     <cal:Parameter Value="{Binding ElementName=SongEditor}" />                                    
-                                </cal:ActionMessage>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </telerik:RadRibbonButton>
-
-                    
-
-                    <telerik:RadRibbonButton x:Name="DeleteSongElement" Content="Delete" >
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <cal:ActionMessage MethodName="DeleteMusicFragment">
-                                    <cal:Parameter Value="$eventArgs" />
-                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />
                                 </cal:ActionMessage>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -57,6 +68,19 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton x:Name="DeleteSongElement" Content="Delete" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="DeleteMusicFragment">
+                                    <cal:Parameter Value="$eventArgs" />
+                                    <cal:Parameter Value="{Binding ElementName=SongEditor}" />
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </telerik:RadRibbonButton>
+                    
+                    
                 </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
 

@@ -1055,6 +1055,14 @@
             Selects the annotation marker. Can be used for Backspace and DeleteBehavior.
             </summary>
         </member>
+        <member name="P:Telerik.Windows.Documents.Model.AnnotationRangeEnd.CreatePairedStartOnCopy">
+            <summary>
+            <para>Gets a value indicating whether a new paired <see cref="T:Telerik.Windows.Documents.Model.AnnotationRangeStart"/> will be created during copy operation.</para>
+            <para>Default value is false.</para>
+            <para>This property is provided for backward compatibility.</para>
+            </summary>
+            <value>Should pair annotation.</value>
+        </member>
         <member name="T:Telerik.Windows.Documents.Model.BaselineAlignment">
             <summary>
             Describes how the baseline for a text-based element is positioned on the vertical axis, relative to the established baseline for text.
@@ -1073,6 +1081,38 @@
         <member name="F:Telerik.Windows.Documents.Model.BaselineAlignment.Superscript">
             <summary>
             A baseline that is aligned at the superscript position of the containing box.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Break.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Model.Break"/> class of type LineBreak.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Break.#ctor(Telerik.Windows.Documents.Model.BreakType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Model.Break"/> class.
+            </summary>
+            <param name="type">The break type.</param>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Model.Break.BreakType">
+            <summary>
+            Gets the type of the break.
+            </summary>
+            <value>The type of the break.</value>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Model.BreakType">
+            <summary>
+            Defines different break types.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Model.BreakType.LineBreak">
+            <summary>
+            Specifies that the current break shall restart itself on the next line in the document.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Model.BreakType.PageBreak">
+            <summary>
+            Specifies that the current break shall restart itself on the next page of the document.
             </summary>
         </member>
         <member name="T:Telerik.Windows.Documents.Model.Fields.EvaluationContext">
@@ -1109,6 +1149,79 @@
             </summary>
             <param name="fieldType">Type of the field.</param>
             <param name="priority">The priority.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Fields.FieldsUpdateManager.RegisterFieldUpdateInfo(System.Type,Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo)">
+            <summary>
+            Registers the update priority for field of given type.
+            </summary>
+            <param name="fieldType">Type of the field.</param>
+            <param name="fieldTypeUpdateInfo">Information needed for updating a field.</param>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Model.Fields.HeaderFooterFieldUpdateBehavior">
+            <summary>
+            Defines the update behaviour of a field when it is in header/footer.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Model.Fields.HeaderFooterFieldUpdateBehavior.OnShowing">
+            <summary>
+            Defines the field should be updated on layout pass. For example when header/footer is showing.
+            <para>The default field update behavior value.</para>
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Model.Fields.HeaderFooterFieldUpdateBehavior.Explicit">
+            <summary>
+            Defines the field should be updated when explicit update is performed.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo">
+            <summary>
+            Holds information used when specific field type is updated as part of updating all fields in the document.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>A hash code for the current <see cref="T:System.Object" />.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo.Equals(Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo)">
+            <summary>
+            Determines whether the specified <see cref="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo"/> is equal
+            to the current <see cref="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo"/>.
+            </summary>
+            <param name="other">The <see cref="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo"/> instance to compare with the current object.</param>
+            <returns>
+            true if the specified <see cref="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo"/> is equal to the
+            current <see cref="T:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal
+            to the current <see cref="T:System.Object" />.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object" /> is equal to the
+            current <see cref="T:System.Object" />; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo.Priority">
+            <summary>
+            Gets or sets the priority of the field update operation.
+            </summary>
+            <value>The priority.</value>
+        </member>
+        <member name="P:Telerik.Windows.Documents.Model.Fields.FieldTypeUpdateInfo.NeedsPagination">
+            <summary>
+            Gets or sets a value indicating whether the document have to be paginated during the field update operation.
+            </summary>
+            <value>The needs pagination.</value>
         </member>
         <member name="T:Telerik.Windows.Documents.Model.IReadOnlyRangeMarker">
             <summary>
@@ -1970,6 +2083,11 @@
             Merges the currently selected table cells into one.
             </summary>
         </member>
+        <member name="M:Telerik.Windows.Documents.Model.RadDocumentEditor.UnmergeTableCells">
+            <summary>
+            Splits the currently selected table cell.
+            </summary>
+        </member>
         <member name="M:Telerik.Windows.Documents.Model.RadDocumentEditor.Copy">
             <summary>
             Copies currently selected document elements into the clipboard
@@ -2326,6 +2444,20 @@
             </summary>
             <param name="e">The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:Telerik.Windows.Documents.RichTextBoxCommands.TableContextCommandBase.#ctor(Telerik.Windows.Controls.RadRichTextBox)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.RichTextBoxCommands.TableContextCommandBase"/> class.
+            </summary>
+            <param name="editor">The associated <see cref="T:Telerik.Windows.Controls.RadRichTextBox"/>.</param>
+        </member>
+        <member name="P:Telerik.Windows.Documents.RichTextBoxCommands.TableContextCommandBase.IsTableSelectionEnabledCommand">
+            <summary>
+            Gets a value indicating whether command must be enabled when there is selection in table. Default implementation returns <c>false</c>.
+            </summary>
+            <value>
+            	<c>true</c> if the command must be enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="T:Telerik.Windows.Documents.RichTextBoxCommands.TabCommandBehaviors">
             <summary>
             Defines behaviors for <see cref="T:Telerik.Windows.Documents.RichTextBoxCommands.TabForwardCommand"/> and <see cref="T:Telerik.Windows.Documents.RichTextBoxCommands.TabBackwardCommand"/>.
@@ -2367,6 +2499,31 @@
             </summary>
             <param name="document">The document.</param>
             <returns>The hyperlink info of the selected hyperlink.</returns>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Selection.SelectionRangeType">
+            <summary>
+            Describes the selection range type.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Selection.SelectionRangeType.Composite">
+            <summary>
+            Composite selection range.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Selection.SelectionRangeType.Table">
+            <summary>
+            Table selection range.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Selection.SelectionRangeType.TableRow">
+            <summary>
+            Table row selection range.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Selection.SelectionRangeType.TableCell">
+            <summary>
+            Table cell selection range.
+            </summary>
         </member>
         <member name="T:Telerik.Windows.Documents.UI.ActiveDocumentEditorChangedEventArgs">
             <summary>
@@ -2413,6 +2570,16 @@
             <summary>
             Represents TextInput events.
             </summary>
+        </member>
+        <member name="M:Telerik.Windows.Documents.UI.Extensibility.InsertTableDialogContext.#ctor(System.Action{System.Int32,System.Int32,System.Boolean},Telerik.Windows.Controls.RadRichTextBox)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.UI.Extensibility.InsertTableDialogContext"/> class.
+            </summary>
+            <param name="insertTableCallback">The insert table callback. 
+            First parameter specifies rows; 
+            second parameter specifies columns; 
+            the third parameter specifies if paragraphs should be inserted before table when it is in the start of block container.</param>
+            <param name="owner">The owner of the dialog.</param>
         </member>
         <member name="M:Telerik.Windows.Documents.UI.StyleFormattingPropertiesDialogSettings.#ctor(System.Boolean)">
             <summary>
@@ -5709,20 +5876,6 @@
             Gets or sets the list of dictionaries used by SpellChecher. Generally this property is not intended to be used directly from your code, rather it is set automatically by MEF.
             </summary>
         </member>
-        <member name="M:Telerik.Windows.Documents.RichTextBoxCommands.TableContextCommandBase.#ctor(Telerik.Windows.Controls.RadRichTextBox)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.RichTextBoxCommands.TableContextCommandBase"/> class.
-            </summary>
-            <param name="editor">The associated <see cref="T:Telerik.Windows.Controls.RadRichTextBox"/>.</param>
-        </member>
-        <member name="P:Telerik.Windows.Documents.RichTextBoxCommands.TableContextCommandBase.IsTableSelectionEnabledCommand">
-            <summary>
-            Gets a value indicating whether command must be enabled when there is selection in table. Default implementation returns <c>false</c>.
-            </summary>
-            <value>
-            	<c>true</c> if the command must be enabled; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="T:Telerik.Windows.Documents.RichTextBoxCommands.CommandExecutedEventArgs">
             <summary>
             Provides data for <see cref="E:Telerik.Windows.Controls.RadRichTextBox.CommandExecuted"/> event.
@@ -6292,12 +6445,11 @@
             Provides functionality for showing dialogs for inserting tables.
             </summary>
         </member>
-        <member name="M:Telerik.Windows.Documents.UI.Extensibility.IInsertTableDialog.ShowDialog(System.Action{System.Int32,System.Int32},Telerik.Windows.Controls.RadRichTextBox)">
+        <member name="M:Telerik.Windows.Documents.UI.Extensibility.IInsertTableDialog.ShowDialog(Telerik.Windows.Documents.UI.Extensibility.InsertTableDialogContext)">
             <summary>
             Shows the dialog. Specified insert table callback is applied on user confirmation.
             </summary>
-            <param name="insertTableCallback">The insert table callback. First parameter specifies rows; second parameter specifies columns.</param>
-            <param name="owner">The owner of the dialog.</param>
+            <param name="insertTableDialogContext">The insert table dialog context.</param>
         </member>
         <member name="T:Telerik.Windows.Documents.UI.Extensibility.ITablePropertiesDialog">
             <summary>

@@ -1371,6 +1371,12 @@
             <param name="sender"></param>
             <param name="e"></param>		
         </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonSplitButton.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Called before the <see cref="E:System.Windows.UIElement.KeyDown"/> event occurs.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
         <member name="M:Telerik.Windows.Controls.RadRibbonSplitButton.OnCreateAutomationPeer">
             <inheritdoc />
         </member>
@@ -2100,6 +2106,841 @@
             A converted value. If the method returns null, the valid null value is used.
             </returns>
         </member>
+        <member name="T:Telerik.Windows.Controls.RadRibbonView">
+            <summary>
+            Represents a Ribbon control.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.ItemFromContextualGroupContainer(System.Windows.DependencyObject)">
+            <summary>
+            Returns the item for a specific container.
+            </summary>
+            <param name="container">The container.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.ContainerFromContextualGroupItem(System.Object)">
+            <summary>
+            Returns the container for the given item. 
+            </summary>
+            <param name="item">The item for which the container should be returned.</param>
+            <returns>The container or <c>null</c> if the container hasn't been generated.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RadRibbonView"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnApplyTemplate">
+            <summary>
+            When overridden in a derived class, is invoked whenever application code
+            or internal processes (such as a rebuilding layout pass) call System.Windows.Controls.Control.ApplyTemplate().
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.ResetTheme">
+            <summary>
+            Resets the theme.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnToolBarPositionChanged(Telerik.Windows.RadRoutedEventArgs)">
+            <summary>
+            Raises the <see cref="E:ToolBarPositionChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnMinimizedChanged(Telerik.Windows.RadRoutedEventArgs)">
+            <summary>
+            Raises the <see cref="E:MinimizedChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnCollapsedChanged(Telerik.Windows.RadRoutedEventArgs)">
+            <summary>
+            Raises the <see cref="E:CollapsedChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnHelpRequested(Telerik.Windows.RadRoutedEventArgs)">
+            <summary>
+            Raises the <see cref="E:HelpRequested"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnApplicationMenuOpenStateChanged(Telerik.Windows.RadRoutedEventArgs)">
+            <summary>
+            Raises the <see cref="E:ApplicationMenuOpenStateChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnMinimizedPopupStateChanged(Telerik.Windows.RadRoutedEventArgs)">
+            <summary>
+            Raises the <see cref="E:MinimizedPopupStateChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.GetContainerForItemOverride">
+            <summary>
+            Creates or identifies the element used to display a specified item.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.IsItemItsOwnContainerOverride(System.Object)">
+            <summary>
+            Determines if the specified item is (or is eligible to be) its own container.
+            </summary>
+            <param name="item">The item to check.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.PrepareContainerForItemOverride(System.Windows.DependencyObject,System.Object)">
+            <summary>
+            Prepares the specified element to display the specified item.
+            </summary>
+            <param name="element">Element used to display the specified item.</param>
+            <param name="item">Specified item.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.MeasureOverride(System.Windows.Size)">
+            <summary>
+            Called when the control is measure.
+            </summary>
+            <param name="availableSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnSelectionChanged(Telerik.Windows.Controls.RadSelectionChangedEventArgs)">
+            <summary>
+            Called when the Selected item has changed.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnItemsChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Called when the value of the <see cref="P:System.Windows.Controls.ItemsControl.Items"/> property changes.
+            </summary>
+            <param name="e">A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnKeyUp(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Called when any Key have been pressed.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.GetContainer">
+            <summary>
+            Returns a new instance of the control that implements the <see cref="T:Telerik.Windows.Controls.TabControl.IRadTabItem"/> interface.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnInitialized(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.FrameworkElement.Initialized"/> event. This method is invoked whenever <see cref="P:System.Windows.FrameworkElement.IsInitialized"/> is set to true internally.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnCreateAutomationPeer">
+            <summary>
+            Creates a <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonViewAutomationPeer"/> peer associated with this object.
+            </summary>
+            <returns> An instance of the <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonViewAutomationPeer"/>.</returns>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpCommandProperty">
+            <summary>
+            Identifies the HelpCommand dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpCommandParameterProperty">
+            <summary>
+            Identifies the HelpCommandParameter dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpCommandTargetProperty">
+            <summary>
+            Identifies the HelpCommandTarget dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.SelectedTabProperty">
+            <summary>
+            Identifies the SelectedTab property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMinimizedProperty">
+            <summary>
+            Identifies the IsMinimized property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsCollapsedProperty">
+            <summary>
+            Identifies the IsMinimized property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsProperty">
+            <summary>
+            Identifies the ContextualGroupsProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBarPositionProperty">
+            <summary>
+            Identifies the QuickAccessToolBarPosition property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBarProperty">
+            <summary>
+            Identifies the QuickAccessToolBar property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ToolBarPositionChangedEvent">
+            <summary>
+            Identifies the ToolBarPositionChanged routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonImageSourceProperty">
+            <summary>
+            Identifies the ApplicationButtonImageSource property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonContentProperty">
+            <summary>
+            Identifies the ApplicationButtonContent property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonStyleProperty">
+            <summary>
+            Identifies the ApplicationButtonStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpButtonStyleProperty">
+            <summary>
+            Identifies the HelpButtonStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonStyleProperty">
+            <summary>
+            Identifies the MinimizeButtonStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.WindowTitleStyleProperty">
+            <summary>
+            Identifies the WindowTitleStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.RibbonGroupsPresenterStyleProperty">
+            <summary>
+            Identifies the RibbonGroupsPresenterStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonVisibilityProperty">
+            <summary>
+            Identifies the ApplicationButtonVisibility property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.TitleBarVisibilityProperty">
+            <summary>
+            Identifies the TitleBarVisibility property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonVisibilityProperty">
+            <summary>
+            Identifies the MinimizeButtonVisibility property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpButtonVisibilityProperty">
+            <summary>
+            Identifies the HelpButtonVisibility property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpButtonImageSourceProperty">
+            <summary>
+            Identifies the HelpButtonImageSource property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationNameProperty">
+            <summary>
+            Identifies the ApplicationName property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationMenuProperty">
+            <summary>
+            Identifies the ApplicationMenu property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.BackstageProperty">
+            <summary>
+            Identifies the Backstage property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.BackstageClippingElementProperty">
+            <summary>
+            Identifies the BackstageClippingElement dependency property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsApplicationMenuOpenProperty">
+            <summary>
+            Identifies the IsApplicationMenuOpen property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMinimizableProperty">
+            <summary>
+            Identifies the IsMinimizable property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMouseWheelTabScrollingEnabledProperty">
+            <summary>
+            Identifies the IsMouseWheelTabScrollingEnabled property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMinimizedPopupOpenProperty">
+            <summary>
+            Identifies the IsMinimizedPopupOpen property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsBackstageOpenProperty">
+            <summary>
+            Identifies the IsBackstageOpen property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsApplicationButtonEnabledProperty">
+            <summary>
+            Identifies the IsApplicationButtonEnabled property.
+            </summary>        
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.CollapseThresholdSizeProperty">
+            <summary>
+            Identifies the CollapseThresholdSize property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.TitleProperty">
+            <summary>
+            Identifies the Title property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.TabStripAdditionalContentProperty">
+            <summary>
+            Identifies the TabStripAdditionalContent property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.TitleBarBackgroundProperty">
+            <summary>
+            Identifies the TitleBarBackground property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualTabsStyleProperty">
+            <summary>
+            Identifies the ContextualTabsStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsStyleProperty">
+            <summary>
+            Identifies the ContextualGroupsStyleProperty property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpRequestedEvent">
+            <summary>
+            Identifies the HelpRequested routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.CollapsedChangedEvent">
+            <summary>
+            Identifies the CollapsedChanged routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizedChangedEvent">
+            <summary>
+            Identifies the MinimizedChanged routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.PreviewMinimizedChangedEvent">
+            <summary>
+            Identifies the PreviewMinimizedChanged routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizedPopupStateChangedEvent">
+            <summary>
+            Identifies the MinimizedPopupStateChanged routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonDoubleClickEvent">
+            <summary>
+            Identifies the ApplicationButtonDoubleClick routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationMenuOpenStateChangedEvent">
+            <summary>
+            Identifies the ApplicationMenuOpenStateChanged routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.PreviewPopupOpenedEvent">
+            <summary>
+            Identifies the PreviewPopupOpened routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.PopupOpenedEvent">
+            <summary>
+            Identifies the PopupOpened routed event.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContentHeightProperty">
+            <summary>
+            Identifies the ContentHeight property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsItemsSourceProperty">
+            <summary>
+            Identifies the ContextualGroupsItemsSource property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsHostedInRibbonWindowProperty">
+            <summary>
+            Identifies the IsHostedInRibbonWindow property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.WindowIconVisibilityProperty">
+            <summary>
+            Identifies the WindowIconVisibility property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsKeyboardNavigationEnabledProperty">
+            <summary>
+            Identifies IsKeyboardNavigationEnabled Property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.KeyboardNavigationActivationKeysProperty">
+            <summary>
+            Identifies KeyboardNavigationActivationKeys Property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsHostedInRibbonWindowPropertyKey">
+            <summary>
+            Identifies the IsHostedInRibbonWindow property.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.ToolBarPositionChanged">
+            <summary>
+            Occurs when location of the toolbar has changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.CollapsedChanged">
+            <summary>
+            Occurs when ribbon bar collapsed state has changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.MinimizedChanged">
+            <summary>
+            Occurs when ribbon bar minimized state has changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.PreviewMinimizedChanged">
+            <summary>
+            Occurs before ribbon bar minimized state has changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.MinimizedPopupOpenStateChanged">
+            <summary>
+            Occurs when ribbon bar minimized popup open state has changed.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonDoubleClick">
+            <summary>
+            Occurs when user double click on the application button.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.ApplicationMenuOpenStateChanged">
+            <summary>
+            Occurs when the application menu changes its open state.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.HelpRequested">
+            <summary>
+            Occurs when user click on the help button.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.PreviewPopupOpened">
+            <summary>
+            Occurs when the Popup is opening.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.PopupOpened">
+            <summary>
+            Occurs when the Popup is opened.
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.DropDownOpened">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonView.DropDownClosed">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsItemsSource">
+            <summary>
+            Gets or sets the ContextualGroupsItemsSource.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpCommand">
+            <summary>
+            Gets or sets the command that will be executed when the command source is invoked.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpCommandParameter">
+            <summary>
+            Represents a user defined data value that can be passed to the command when it is executed.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpCommandTarget">
+            <summary>
+            The object that the command is being executed on.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMinimized">
+            <summary>
+            Gets or sets a value indicating whether the RibbonView is minimized.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsCollapsed">
+            <summary>
+            Gets a value indicating whether the RibbonView is collapsed due to insufficient space.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBar">
+            <summary>
+            Gets or sets the QuickAccessToolBar.
+            </summary>
+            <value>The QuickAccessToolBar.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBarPosition">
+            <summary>
+            Gets or sets the quick access toolbar position.
+            </summary>
+            <value>The quick access toolbar position.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonImageSource">
+            <summary>
+            Gets or sets the application button image source.
+            </summary>
+            <value>The application button image source.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonContent">
+            <summary>
+            Gets or sets the application button content. Use this property or ApplicationButtonImageSource property 
+            to set the content of the application button.
+            </summary>
+            <value>The application button image source.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonStyle">
+            <summary>
+            Gets or sets the ApplicationButton style.
+            </summary>
+            <value>The ApplicationButtonStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualGroups">
+            <summary>
+            Gets the ContextualGroups property.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpButtonStyle">
+            <summary>
+            Gets or sets the HelpButton style.
+            </summary>
+            <value>The HelpButtonStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.RightTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.Align">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.AllowDragOverTab">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.AllowDragReorder">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.AllTabsEqualHeight">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContentTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContentTemplateSelector">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownButtonStyle">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownDisplayMemberPath">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownDisplayMode">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownStyle">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsContentPreserved">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsDropDownOpen">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ItemDropDownContentTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ItemDropDownContentTemplateSelector">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.LeftTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.OverflowMode">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ReorderTabRows">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ScrollMode">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedContent">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedContentTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedContentTemplateSelector">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.SupressSelectedContentTemplateReapplying">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.TabOrientation">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.TabStripPlacement">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.TopTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.BottomTemplate">
+            <summary>
+            This property does not apply to RibbonView. 
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualTabsStyle">
+            <summary>
+            Gets or sets the contextual tab's style.
+            </summary>
+            <value>The ContextualTabsStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsStyle">
+            <summary>
+            Gets or sets the contextual group's style.
+            </summary>
+            <value>The ContextualGroupsStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonStyle">
+            <summary>
+            Gets or sets the MinimizeButton style.
+            </summary>
+            <value>The MinimizeButtonStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.WindowTitleStyle">
+            <summary>
+            Gets or sets the WindowTitle style.
+            </summary>
+            <value>The WindowTitleStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.RibbonGroupsPresenterStyle">
+            <summary>
+            Gets or sets the RibbonGroupsPresenter style.
+            </summary>
+            <value>The RibbonGroupsPresenterStyle.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.BackstageClippingElement">
+            <summary>
+            Gets or sets the area that will contain the backstage.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonVisibility">
+            <summary>
+            Gets or sets the application button Visibility.
+            </summary>
+            <value>The application button Visibility.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.TitleBarVisibility">
+            <summary>
+            Gets or sets the title bar Visibility.
+            </summary>
+            <value>The title bar Visibility.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonVisibility">
+            <summary>
+            Gets or sets the Visibility of the minimize button which is located near the help button.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationName">
+            <summary>
+            Gets or sets the name of the application.
+            </summary>
+            <value>The name of the application.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationMenu">
+            <summary>
+            Gets or sets the application menu.
+            </summary>
+            <value>The application menu.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.Backstage">
+            <summary>
+            Gets or sets the backstage.
+            </summary>
+            <value>The backstage.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsApplicationMenuOpen">
+            <summary>
+            Gets or sets a value indicating whether this instance is application menu open.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMinimizable">
+            <summary>
+            Gets or sets a value indicating whether the RibbonView is Minimizable.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMouseWheelTabScrollingEnabled">
+            <summary>
+            Gets or sets a value indicating whether the mouse wheel will switch between the tabs.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMinimizedPopupOpen">
+            <summary>
+            Gets a value indicating whether the popup for the minimized state is open.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsBackstageOpen">
+            <summary>
+            Gets or sets a value indicating whether the ribbon bar's backstage is open.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsApplicationButtonEnabled">
+            <summary>
+            Gets or sets a value indicating whether the ribbon bar's backstage/application button is enabled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.CollapseThresholdSize">
+            <summary>
+            Gets or sets the size under which the RadRibbonView is collapsing.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpButtonVisibility">
+            <summary>
+            Gets or sets the help button visibility.
+            </summary>
+            <value>The help button visibility.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpButtonImageSource">
+            <summary>
+            Gets or sets the help button image source.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.Title">
+            <summary>
+            Gets or sets the title.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.TabStripAdditionalContent">
+            <summary>
+            Gets or sets content that is displayed at the right end of the tab strip.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.TitleBarBackground">
+            <summary>
+            Gets or sets the background of the title bar.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedTab">
+            <summary>
+            Gets the currently selected tab, representing the SelectedItem.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContentHeight">
+            <summary>
+            Gets or sets the ContentHeight property.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.WindowIconVisibility">
+            <summary>
+            Gets or sets the window icon visibility.
+            </summary>
+            <value>The window icon visibility.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsHostedInRibbonWindow">
+            <summary>
+            Gets a value indicating whether this instance is hosted in ribbon window.
+            </summary>
+            <value>
+            	<c>True</c> if this instance is hosted in ribbon window; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsKeyboardNavigationEnabled">
+            <summary>
+            Gets or sets the IsKeyboardNavigationEnabled.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonView.KeyboardNavigationActivationKeys">
+            <summary>
+            Gets or sets the KeyboardNavigationActivationKeys.
+            </summary>
+        </member>
         <member name="T:Telerik.Windows.Controls.RibbonView.KeyTipActivation">
             <summary>
             Class used to attach event handlers to execute when key tip is activated.
@@ -2755,821 +3596,6 @@
             Gets an a reference to the control that implements the IRadTabItem interface.
             </summary>
             <value></value>
-        </member>
-        <member name="T:Telerik.Windows.Controls.RadRibbonView">
-            <summary>
-            Represents a Ribbon control.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.ItemFromContextualGroupContainer(System.Windows.DependencyObject)">
-            <summary>
-            Returns the item for a specific container.
-            </summary>
-            <param name="container">The container.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.ContainerFromContextualGroupItem(System.Object)">
-            <summary>
-            Returns the container for the given item. 
-            </summary>
-            <param name="item">The item for which the container should be returned.</param>
-            <returns>The container or <c>null</c> if the container hasn't been generated.</returns>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RadRibbonView"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnApplyTemplate">
-            <summary>
-            When overridden in a derived class, is invoked whenever application code
-            or internal processes (such as a rebuilding layout pass) call System.Windows.Controls.Control.ApplyTemplate().
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.ResetTheme">
-            <summary>
-            Resets the theme.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnToolBarPositionChanged(Telerik.Windows.RadRoutedEventArgs)">
-            <summary>
-            Raises the <see cref="E:ToolBarPositionChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnMinimizedChanged(Telerik.Windows.RadRoutedEventArgs)">
-            <summary>
-            Raises the <see cref="E:MinimizedChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnCollapsedChanged(Telerik.Windows.RadRoutedEventArgs)">
-            <summary>
-            Raises the <see cref="E:CollapsedChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnHelpRequested(Telerik.Windows.RadRoutedEventArgs)">
-            <summary>
-            Raises the <see cref="E:HelpRequested"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnApplicationMenuOpenStateChanged(Telerik.Windows.RadRoutedEventArgs)">
-            <summary>
-            Raises the <see cref="E:ApplicationMenuOpenStateChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnMinimizedPopupStateChanged(Telerik.Windows.RadRoutedEventArgs)">
-            <summary>
-            Raises the <see cref="E:MinimizedPopupStateChanged"/> event.
-            </summary>
-            <param name="e">The <see cref="T:Telerik.Windows.RadRoutedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.GetContainerForItemOverride">
-            <summary>
-            Creates or identifies the element used to display a specified item.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.IsItemItsOwnContainerOverride(System.Object)">
-            <summary>
-            Determines if the specified item is (or is eligible to be) its own container.
-            </summary>
-            <param name="item">The item to check.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.PrepareContainerForItemOverride(System.Windows.DependencyObject,System.Object)">
-            <summary>
-            Prepares the specified element to display the specified item.
-            </summary>
-            <param name="element">Element used to display the specified item.</param>
-            <param name="item">Specified item.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.MeasureOverride(System.Windows.Size)">
-            <summary>
-            Called when the control is measure.
-            </summary>
-            <param name="availableSize"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnSelectionChanged(Telerik.Windows.Controls.RadSelectionChangedEventArgs)">
-            <summary>
-            Called when the Selected item has changed.
-            </summary>
-            <param name="e"></param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnItemsChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
-            <summary>
-            Called when the value of the <see cref="P:System.Windows.Controls.ItemsControl.Items"/> property changes.
-            </summary>
-            <param name="e">A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnKeyUp(System.Windows.Input.KeyEventArgs)">
-            <summary>
-            Called when any Key have been pressed.
-            </summary>
-            <param name="e"></param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.GetContainer">
-            <summary>
-            Returns a new instance of the control that implements the <see cref="T:Telerik.Windows.Controls.TabControl.IRadTabItem"/> interface.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnInitialized(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:System.Windows.FrameworkElement.Initialized"/> event. This method is invoked whenever <see cref="P:System.Windows.FrameworkElement.IsInitialized"/> is set to true internally.
-            </summary>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonView.OnCreateAutomationPeer">
-            <summary>
-            Creates a <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonViewAutomationPeer"/> peer associated with this object.
-            </summary>
-            <returns> An instance of the <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonViewAutomationPeer"/>.</returns>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpCommandProperty">
-            <summary>
-            Identifies the HelpCommand dependency property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpCommandParameterProperty">
-            <summary>
-            Identifies the HelpCommandParameter dependency property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpCommandTargetProperty">
-            <summary>
-            Identifies the HelpCommandTarget dependency property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.SelectedTabProperty">
-            <summary>
-            Identifies the SelectedTab property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMinimizedProperty">
-            <summary>
-            Identifies the IsMinimized property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsCollapsedProperty">
-            <summary>
-            Identifies the IsMinimized property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsProperty">
-            <summary>
-            Identifies the ContextualGroupsProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBarPositionProperty">
-            <summary>
-            Identifies the QuickAccessToolBarPosition property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBarProperty">
-            <summary>
-            Identifies the QuickAccessToolBar property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ToolBarPositionChangedEvent">
-            <summary>
-            Identifies the ToolBarPositionChanged routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonImageSourceProperty">
-            <summary>
-            Identifies the ApplicationButtonImageSource property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonContentProperty">
-            <summary>
-            Identifies the ApplicationButtonContent property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonStyleProperty">
-            <summary>
-            Identifies the ApplicationButtonStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpButtonStyleProperty">
-            <summary>
-            Identifies the HelpButtonStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonStyleProperty">
-            <summary>
-            Identifies the MinimizeButtonStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.WindowTitleStyleProperty">
-            <summary>
-            Identifies the WindowTitleStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.RibbonGroupsPresenterStyleProperty">
-            <summary>
-            Identifies the RibbonGroupsPresenterStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonVisibilityProperty">
-            <summary>
-            Identifies the ApplicationButtonVisibility property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.TitleBarVisibilityProperty">
-            <summary>
-            Identifies the TitleBarVisibility property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonVisibilityProperty">
-            <summary>
-            Identifies the MinimizeButtonVisibility property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpButtonVisibilityProperty">
-            <summary>
-            Identifies the HelpButtonVisibility property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpButtonImageSourceProperty">
-            <summary>
-            Identifies the HelpButtonImageSource property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationNameProperty">
-            <summary>
-            Identifies the ApplicationName property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationMenuProperty">
-            <summary>
-            Identifies the ApplicationMenu property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.BackstageProperty">
-            <summary>
-            Identifies the Backstage property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.BackstageClippingElementProperty">
-            <summary>
-            Identifies the BackstageClippingElement dependency property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsApplicationMenuOpenProperty">
-            <summary>
-            Identifies the IsApplicationMenuOpen property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMinimizableProperty">
-            <summary>
-            Identifies the IsMinimizable property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMouseWheelTabScrollingEnabledProperty">
-            <summary>
-            Identifies the IsMouseWheelTabScrollingEnabled property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsMinimizedPopupOpenProperty">
-            <summary>
-            Identifies the IsMinimizedPopupOpen property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsBackstageOpenProperty">
-            <summary>
-            Identifies the IsBackstageOpen property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsApplicationButtonEnabledProperty">
-            <summary>
-            Identifies the IsApplicationButtonEnabled property.
-            </summary>        
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.CollapseThresholdSizeProperty">
-            <summary>
-            Identifies the CollapseThresholdSize property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.TitleProperty">
-            <summary>
-            Identifies the Title property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.TabStripAdditionalContentProperty">
-            <summary>
-            Identifies the TabStripAdditionalContent property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.TitleBarBackgroundProperty">
-            <summary>
-            Identifies the TitleBarBackground property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualTabsStyleProperty">
-            <summary>
-            Identifies the ContextualTabsStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsStyleProperty">
-            <summary>
-            Identifies the ContextualGroupsStyleProperty property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.HelpRequestedEvent">
-            <summary>
-            Identifies the HelpRequested routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.CollapsedChangedEvent">
-            <summary>
-            Identifies the CollapsedChanged routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizedChangedEvent">
-            <summary>
-            Identifies the MinimizedChanged routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.PreviewMinimizedChangedEvent">
-            <summary>
-            Identifies the PreviewMinimizedChanged routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.MinimizedPopupStateChangedEvent">
-            <summary>
-            Identifies the MinimizedPopupStateChanged routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonDoubleClickEvent">
-            <summary>
-            Identifies the ApplicationButtonDoubleClick routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ApplicationMenuOpenStateChangedEvent">
-            <summary>
-            Identifies the ApplicationMenuOpenStateChanged routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.PreviewPopupOpenedEvent">
-            <summary>
-            Identifies the PreviewPopupOpened routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.PopupOpenedEvent">
-            <summary>
-            Identifies the PopupOpened routed event.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContentHeightProperty">
-            <summary>
-            Identifies the ContentHeight property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsItemsSourceProperty">
-            <summary>
-            Identifies the ContextualGroupsItemsSource property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsHostedInRibbonWindowProperty">
-            <summary>
-            Identifies the IsHostedInRibbonWindow property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.WindowIconVisibilityProperty">
-            <summary>
-            Identifies the WindowIconVisibility property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonView.IsHostedInRibbonWindowPropertyKey">
-            <summary>
-            Identifies the IsHostedInRibbonWindow property.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.ToolBarPositionChanged">
-            <summary>
-            Occurs when location of the toolbar has changed.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.CollapsedChanged">
-            <summary>
-            Occurs when ribbon bar collapsed state has changed.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.MinimizedChanged">
-            <summary>
-            Occurs when ribbon bar minimized state has changed.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.PreviewMinimizedChanged">
-            <summary>
-            Occurs before ribbon bar minimized state has changed.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.MinimizedPopupOpenStateChanged">
-            <summary>
-            Occurs when ribbon bar minimized popup open state has changed.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonDoubleClick">
-            <summary>
-            Occurs when user double click on the application button.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.ApplicationMenuOpenStateChanged">
-            <summary>
-            Occurs when the application menu changes its open state.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.HelpRequested">
-            <summary>
-            Occurs when user click on the help button.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.PreviewPopupOpened">
-            <summary>
-            Occurs when the Popup is opening.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.PopupOpened">
-            <summary>
-            Occurs when the Popup is opened.
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.DropDownOpened">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="E:Telerik.Windows.Controls.RadRibbonView.DropDownClosed">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsItemsSource">
-            <summary>
-            Gets or sets the ContextualGroupsItemsSource.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpCommand">
-            <summary>
-            Gets or sets the command that will be executed when the command source is invoked.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpCommandParameter">
-            <summary>
-            Represents a user defined data value that can be passed to the command when it is executed.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpCommandTarget">
-            <summary>
-            The object that the command is being executed on.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMinimized">
-            <summary>
-            Gets or sets a value indicating whether the RibbonView is minimized.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsCollapsed">
-            <summary>
-            Gets a value indicating whether the RibbonView is collapsed due to insufficient space.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBar">
-            <summary>
-            Gets or sets the QuickAccessToolBar.
-            </summary>
-            <value>The QuickAccessToolBar.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.QuickAccessToolBarPosition">
-            <summary>
-            Gets or sets the quick access toolbar position.
-            </summary>
-            <value>The quick access toolbar position.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonImageSource">
-            <summary>
-            Gets or sets the application button image source.
-            </summary>
-            <value>The application button image source.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonContent">
-            <summary>
-            Gets or sets the application button content. Use this property or ApplicationButtonImageSource property 
-            to set the content of the application button.
-            </summary>
-            <value>The application button image source.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonStyle">
-            <summary>
-            Gets or sets the ApplicationButton style.
-            </summary>
-            <value>The ApplicationButtonStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualGroups">
-            <summary>
-            Gets the ContextualGroups property.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpButtonStyle">
-            <summary>
-            Gets or sets the HelpButton style.
-            </summary>
-            <value>The HelpButtonStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.RightTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.Align">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.AllowDragOverTab">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.AllowDragReorder">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.AllTabsEqualHeight">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContentTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContentTemplateSelector">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownButtonStyle">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownDisplayMemberPath">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownDisplayMode">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.DropDownStyle">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsContentPreserved">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsDropDownOpen">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ItemDropDownContentTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ItemDropDownContentTemplateSelector">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.LeftTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.OverflowMode">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ReorderTabRows">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ScrollMode">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedContent">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedContentTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedContentTemplateSelector">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.SupressSelectedContentTemplateReapplying">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.TabOrientation">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.TabStripPlacement">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.TopTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.BottomTemplate">
-            <summary>
-            This property does not apply to RibbonView. 
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualTabsStyle">
-            <summary>
-            Gets or sets the contextual tab's style.
-            </summary>
-            <value>The ContextualTabsStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContextualGroupsStyle">
-            <summary>
-            Gets or sets the contextual group's style.
-            </summary>
-            <value>The ContextualGroupsStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonStyle">
-            <summary>
-            Gets or sets the MinimizeButton style.
-            </summary>
-            <value>The MinimizeButtonStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.WindowTitleStyle">
-            <summary>
-            Gets or sets the WindowTitle style.
-            </summary>
-            <value>The WindowTitleStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.RibbonGroupsPresenterStyle">
-            <summary>
-            Gets or sets the RibbonGroupsPresenter style.
-            </summary>
-            <value>The RibbonGroupsPresenterStyle.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.BackstageClippingElement">
-            <summary>
-            Gets or sets the area that will contain the backstage.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationButtonVisibility">
-            <summary>
-            Gets or sets the application button Visibility.
-            </summary>
-            <value>The application button Visibility.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.TitleBarVisibility">
-            <summary>
-            Gets or sets the title bar Visibility.
-            </summary>
-            <value>The title bar Visibility.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.MinimizeButtonVisibility">
-            <summary>
-            Gets or sets the Visibility of the minimize button which is located near the help button.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationName">
-            <summary>
-            Gets or sets the name of the application.
-            </summary>
-            <value>The name of the application.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ApplicationMenu">
-            <summary>
-            Gets or sets the application menu.
-            </summary>
-            <value>The application menu.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.Backstage">
-            <summary>
-            Gets or sets the backstage.
-            </summary>
-            <value>The backstage.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsApplicationMenuOpen">
-            <summary>
-            Gets or sets a value indicating whether this instance is application menu open.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMinimizable">
-            <summary>
-            Gets or sets a value indicating whether the RibbonView is Minimizable.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMouseWheelTabScrollingEnabled">
-            <summary>
-            Gets or sets a value indicating whether the mouse wheel will switch between the tabs.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsMinimizedPopupOpen">
-            <summary>
-            Gets a value indicating whether the popup for the minimized state is open.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsBackstageOpen">
-            <summary>
-            Gets or sets a value indicating whether the ribbon bar's backstage is open.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsApplicationButtonEnabled">
-            <summary>
-            Gets or sets a value indicating whether the ribbon bar's backstage/application button is enabled.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.CollapseThresholdSize">
-            <summary>
-            Gets or sets the size under which the RadRibbonView is collapsing.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpButtonVisibility">
-            <summary>
-            Gets or sets the help button visibility.
-            </summary>
-            <value>The help button visibility.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.HelpButtonImageSource">
-            <summary>
-            Gets or sets the help button image source.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.Title">
-            <summary>
-            Gets or sets the title.
-            </summary>
-            <value>The title.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.TabStripAdditionalContent">
-            <summary>
-            Gets or sets content that is displayed at the right end of the tab strip.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.TitleBarBackground">
-            <summary>
-            Gets or sets the background of the title bar.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.SelectedTab">
-            <summary>
-            Gets the currently selected tab, representing the SelectedItem.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.ContentHeight">
-            <summary>
-            Gets or sets the ContentHeight property.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.WindowIconVisibility">
-            <summary>
-            Gets or sets the window icon visibility.
-            </summary>
-            <value>The window icon visibility.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonView.IsHostedInRibbonWindow">
-            <summary>
-            Gets a value indicating whether this instance is hosted in ribbon window.
-            </summary>
-            <value>
-            	<c>True</c> if this instance is hosted in ribbon window; otherwise, <c>false</c>.
-            </value>
         </member>
         <member name="T:Telerik.Windows.Controls.GroupVariant">
             <summary>
@@ -4711,6 +4737,12 @@
             </summary>
             <param name="useTransitions">Indicates whether transitions should be used.</param>
         </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonBackstageItem.OnKeyDown(System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Called before the <see cref="E:System.Windows.UIElement.KeyDown"/> event occurs.
+            </summary>
+            <param name="e">The data for the event.</param>
+        </member>
         <member name="M:Telerik.Windows.Controls.RadRibbonBackstageItem.OnInitialized(System.EventArgs)">
             <summary>
             Called when the control has been initialized.
@@ -4892,6 +4924,11 @@
             Identifies the GroupName attached property.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonContextualGroup.IsActiveChangedEvent">
+            <summary>
+            Identifies the IsActive routed event.
+            </summary>
+        </member>
         <member name="M:Telerik.Windows.Controls.RadRibbonContextualGroup.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RadRibbonContextualGroup"/> class.
@@ -4946,6 +4983,11 @@
             <returns>
             The size of the control.
             </returns>
+        </member>
+        <member name="E:Telerik.Windows.Controls.RadRibbonContextualGroup.IsActiveChanged">
+            <summary>
+            Occurs when contextual group IsActive property has changed.
+            </summary>
         </member>
         <member name="P:Telerik.Windows.Controls.RadRibbonContextualGroup.HeaderAlignment">
             <summary>
@@ -5283,6 +5325,11 @@
             </summary>
             <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> that contains the event data.</param>
         </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonGroup.OnHeaderChanged(System.Object,System.Object)">
+            <summary>Called when the <see cref="P:System.Windows.Controls.HeaderedItemsControl.Header" /> property of a <see cref="T:System.Windows.Controls.HeaderedItemsControl" /> changes. </summary>
+            <param name="oldHeader">The old value of the <see cref="P:System.Windows.Controls.HeaderedItemsControl.Header" /> property.</param>
+            <param name="newHeader">The new value of the <see cref="P:System.Windows.Controls.HeaderedItemsControl.Header" /> property.</param>
+        </member>
         <member name="E:Telerik.Windows.Controls.RadRibbonGroup.LaunchDialog">
             <summary>
             Occurs when ribbon bar collapsed state has changed.
@@ -5399,6 +5446,146 @@
             <summary>
             Old.
             </summary>
+        </member>
+        <member name="T:Telerik.Windows.Controls.RadRibbonWindow">
+            <summary>
+            Represents a RibbonWindow class.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.CaptionButtonsReservedWidthProperty">
+            <summary>
+            Identifies the CaptionButtonsReservedWidthProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IconVisibilityProperty">
+            <summary>
+            Identifies the IconVisibilityProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsUsingGlassProperty">
+            <summary>
+            Identifies the IsUsingGlassProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.TitleBarStyleProperty">
+            <summary>
+            Identifies the TitleStyle Dependency Property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.WindowBackgroundProperty">
+            <summary>
+            Identifies the WindowBackground Dependency Property.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsTitleVisibleProperty">
+            <summary>
+            Identifies the IsTitleVisibleProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsAutoHideTaskbarProperty">
+            <summary>
+            Identifies the AutoHideTaskbarProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.SystemPramatersChangedProperty">
+            <summary>
+            Identifies the SystemParametersChangedProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.ThemeProperty">
+            <summary>
+            Identifies the ThemeProperty.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.CaptionButtonsReservedWidthPropertyKey">
+            <summary>
+            Identifies the CaptionButtonsReservedWidthPropertyKey.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsUsingGlassPropertyKey">
+            <summary>
+            Identifies the IsUsingGlassPropertyKey.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RadRibbonWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.GetIsAutoHideTaskbar(System.Windows.DependencyObject)">
+            <summary>
+            Gets the IsAutoHideTaskbar of the operating system.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnApplyTemplate">
+            <summary>
+            When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.
+            </summary>		
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.ResetTheme">
+            <summary>
+            Resets the theme.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnInitialized(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.FrameworkElement.Initialized"/> event and sets <see cref="P:System.Windows.FrameworkElement.DefaultStyleKey"/> from the active theme.
+            </summary>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnTitleBarStyleChanged(System.Windows.Style,System.Windows.Style)">
+            <summary>
+            Called when the TitleBarStyle property is changed.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnCreateAutomationPeer">
+            <summary>
+            Creates a <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonWindowAutomationPeer"/> peer associated with this object.
+            </summary>
+            <returns> An instance of the <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonWindowAutomationPeer"/>.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IsWindowsThemeEnabled">
+            <summary>
+            Gets or sets a value indicating whether the RadRibbonWindow's theme comes from the OS.
+            </summary>
+            <value>
+            	<c>True</c> if the theme is coming from the OS; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.TitleBarStyle">
+            <summary>
+            Gets or sets the style used by the TitleBar area, including the ApplicationName.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.WindowBackground">
+            <summary>
+            Gets or sets the background of the window.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IsTitleVisible">
+            <summary>
+            Gets or sets whether the title of the RadRibbonView to be displayed in the TitleBar of the Window.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.CaptionButtonsReservedWidth">
+            <summary>
+            Gets or sets the width of the caption buttons reserved.
+            </summary>
+            <value>The width of the caption buttons reserved.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IconVisibility">
+            <summary>
+            Gets or sets the icon visibility.
+            </summary>
+            <value>The icon visibility.</value>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IsUsingGlass">
+            <summary>
+            Gets or sets a value indicating whether this instance is using glass.
+            </summary>
+            <value>
+            	<c>True</c> if this instance is using glass; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="T:Telerik.Windows.Controls.RibbonGroupVariant">
             <summary>
@@ -5581,136 +5768,6 @@
             <summary>
             Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.Separator"/> class.
             </summary>
-        </member>
-        <member name="T:Telerik.Windows.Controls.RadRibbonWindow">
-            <summary>
-            Represents a RibbonWindow class.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.CaptionButtonsReservedWidthProperty">
-            <summary>
-            Identifies the CaptionButtonsReservedWidthProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IconVisibilityProperty">
-            <summary>
-            Identifies the IconVisibilityProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsUsingGlassProperty">
-            <summary>
-            Identifies the IsUsingGlassProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.TitleBarStyleProperty">
-            <summary>
-            Identifies the TitleStyle Dependency Property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.WindowBackgroundProperty">
-            <summary>
-            Identifies the WindowBackground Dependency Property.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsTitleVisibleProperty">
-            <summary>
-            Identifies the IsTitleVisibleProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.SystemPramatersChangedProperty">
-            <summary>
-            Identifies the SystemParametersChangedProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.ThemeProperty">
-            <summary>
-            Identifies the ThemeProperty.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.CaptionButtonsReservedWidthPropertyKey">
-            <summary>
-            Identifies the CaptionButtonsReservedWidthPropertyKey.
-            </summary>
-        </member>
-        <member name="F:Telerik.Windows.Controls.RadRibbonWindow.IsUsingGlassPropertyKey">
-            <summary>
-            Identifies the IsUsingGlassPropertyKey.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RadRibbonWindow"/> class.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnApplyTemplate">
-            <summary>
-            When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate"/>.
-            </summary>		
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.ResetTheme">
-            <summary>
-            Resets the theme.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnInitialized(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:System.Windows.FrameworkElement.Initialized"/> event and sets <see cref="P:System.Windows.FrameworkElement.DefaultStyleKey"/> from the active theme.
-            </summary>
-            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnTitleBarStyleChanged(System.Windows.Style,System.Windows.Style)">
-            <summary>
-            Called when the TitleBarStyle property is changed.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Controls.RadRibbonWindow.OnCreateAutomationPeer">
-            <summary>
-            Creates a <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonWindowAutomationPeer"/> peer associated with this object.
-            </summary>
-            <returns> An instance of the <see cref="T:Telerik.Windows.Controls.RibbonView.AutomationPeers.RibbonWindowAutomationPeer"/>.</returns>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IsWindowsThemeEnabled">
-            <summary>
-            Gets or sets a value indicating whether the RadRibbonWindow's theme comes from the OS.
-            </summary>
-            <value>
-            	<c>True</c> if the theme is coming from the OS; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.TitleBarStyle">
-            <summary>
-            Gets or sets the style used by the TitleBar area, including the ApplicationName.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.WindowBackground">
-            <summary>
-            Gets or sets the background of the window.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IsTitleVisible">
-            <summary>
-            Gets or sets whether the title of the RadRibbonView to be displayed in the TitleBar of the Window.
-            </summary>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.CaptionButtonsReservedWidth">
-            <summary>
-            Gets or sets the width of the caption buttons reserved.
-            </summary>
-            <value>The width of the caption buttons reserved.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IconVisibility">
-            <summary>
-            Gets or sets the icon visibility.
-            </summary>
-            <value>The icon visibility.</value>
-        </member>
-        <member name="P:Telerik.Windows.Controls.RadRibbonWindow.IsUsingGlass">
-            <summary>
-            Gets or sets a value indicating whether this instance is using glass.
-            </summary>
-            <value>
-            	<c>True</c> if this instance is using glass; otherwise, <c>false</c>.
-            </value>
         </member>
         <member name="T:Telerik.Windows.Controls.RibbonView.Shell.NonClientFrameEdges">
             <summary>

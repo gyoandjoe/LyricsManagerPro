@@ -289,6 +289,11 @@
             </summary>
             <param name="other">The other image.</param>
         </member>
+        <member name="M:Telerik.Windows.Documents.Model.Drawing.Shapes.ShapeBase.InitializeSize">
+            <summary>
+            Initializes the size.
+            </summary>
+        </member>
         <member name="M:Telerik.Windows.Documents.Model.Drawing.Shapes.ShapeBase.SetWidth(System.Boolean,System.Double)">
             <summary>
             Sets the width of the shape.
@@ -327,6 +332,12 @@
             </summary>
             <value>The size.</value>
         </member>
+        <member name="P:Telerik.Windows.Documents.Model.Drawing.Shapes.ShapeBase.SizeInternal">
+            <summary>
+            Gets the size silently so the size's auto-initializing cannot be invoked.
+            </summary>
+            <value>The size.</value>
+        </member>
         <member name="P:Telerik.Windows.Documents.Model.Drawing.Shapes.ShapeBase.IsVerticallyFlipped">
             <summary>
             Gets or sets the value indicating if the shape is vertically flipped.
@@ -361,6 +372,11 @@
             Initializes a new instance of the <see cref="T:Telerik.Windows.Documents.Model.Drawing.Shapes.Image"/> class.
             </summary>
             <param name="other">The other image.</param>
+        </member>
+        <member name="M:Telerik.Windows.Documents.Model.Drawing.Shapes.Image.InitializeSize">
+            <summary>
+            Initializes the size.
+            </summary>
         </member>
         <member name="P:Telerik.Windows.Documents.Model.Drawing.Shapes.Image.ImageSource">
             <summary>
@@ -1077,84 +1093,13 @@
             adjust the byte counts so that byteCount2 represents the
             upper long (less 3 bits) word of the byte count.
         </member>
-        <member name="T:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData">
-            <summary>
-            Contains all data requried to set and remove protection.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.TryRemoveProtection(System.String)">
-            <summary>
-            Tries the remove protection.
-            </summary>
-            <param name="input">The input.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.EnforceProtection(System.String)">
-            <summary>
-            Enforces protection.
-            </summary>
-            <param name="input">The input.</param>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.Enforced">
-            <summary>
-            Gets or sets the enforced.
-            </summary>
-            <value>The enforced.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.AlgorithmName">
-            <summary>
-            Gets or sets the name of the algorithm.
-            </summary>
-            <value>The name of the algorithm.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.Hash">
-            <summary>
-            Gets or sets the hash.
-            </summary>
-            <value>The hash.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.Salt">
-            <summary>
-            Gets or sets the salt.
-            </summary>
-            <value>The salt.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.SpinCount">
-            <summary>
-            Gets or sets the spin count.
-            </summary>
-            <value>The spin count.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.Password">
-            <summary>
-            Gets or sets the password.
-            </summary>
-            <value>The password.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.IsUsingLegacyProtectionScheme">
-            <summary>
-            Indicates whether the data is produced using legacy protection scheme.
-            </summary>
-            <value>The is using legacy protection scheme.</value>
-        </member>
-        <member name="P:Telerik.Windows.Documents.Common.Model.Protection.ProtectionData.RequiresUserPassword">
-            <summary>
-            Indicates whether a user password is required to remove protection.
-            </summary>
-            <value>The requires user password.</value>
-        </member>
-        <member name="T:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelper">
-            <summary>
-            Contains helper methods for generating protection salt and hash values.
-            </summary>
-        </member>
-        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelper.GenerateSaltBase64">
+        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelperBase.GenerateSaltBase64">
             <summary>
             Generates base64 salt.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelper.GenerateHashBase64(System.String,System.String,System.String,System.Int32)">
+        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelperBase.GenerateHashBase64(System.String,System.String,System.String,System.Int32)">
             <summary>
             Generates base64 hash.
             </summary>
@@ -1164,11 +1109,15 @@
             <param name="spinCount">The spin count.</param>
             <returns></returns>
         </member>
-        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelper.GeneratePasswordLegacyScheme(System.String)">
+        <member name="M:Telerik.Windows.Documents.Common.Model.Protection.ProtectionHelperBase.IsPasswordCorrect(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
-            Generates the password using OOXML legacy scheme.
+            Determines whether [is password correct] [the specified password].
             </summary>
             <param name="password">The password.</param>
+            <param name="hash">The hash.</param>
+            <param name="salt">The salt.</param>
+            <param name="algorithmName">Name of the algorithm.</param>
+            <param name="spinCount">The spin count.</param>
             <returns></returns>
         </member>
         <member name="M:Telerik.Windows.Documents.Common.Model.Protection.RIPEMD160.#ctor">
@@ -1568,6 +1517,11 @@
             Baseline DCT encoding.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.JpegEncodingType.ProgressiveDct">
+            <summary>
+            Progressive DCT encoding.
+            </summary>
+        </member>
         <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.JpegEncodingType.NotSupported">
             <summary>
             Indicates that JPEG uses not-supported encoding type.
@@ -1661,11 +1615,6 @@
             Restart buffer writer.
             </summary>
         </member>
-        <member name="T:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JfifMarker">
-            <summary>
-            Represents JFIF segment (APP0 marker).
-            </summary>
-        </member>
         <member name="P:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarker.Length">
             <summary>
             Gets length of the marker segment.
@@ -1679,6 +1628,11 @@
         <member name="P:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarker.Code">
             <summary>
             Gets marker code.
+            </summary>
+        </member>
+        <member name="T:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JfifMarker">
+            <summary>
+            Represents JFIF segment (APP0 marker).
             </summary>
         </member>
         <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JfifMarker.JFIF_Identifier">
@@ -1911,12 +1865,12 @@
             Specifies page orientation.
             </summary>
         </member>
-        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Rotate0">
+        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Portrait">
             <summary> 
             Portrait page orientation.
             </summary>
         </member>
-        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Rotate90">
+        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Landscape">
             <summary> 
             Landscape page orientation.
             </summary>
@@ -1931,12 +1885,12 @@
             Page is rotated 270 degrees
             </summary>
         </member>
-        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Portrait">
+        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Rotate0">
             <summary> 
             Portrait page orientation.
             </summary>
         </member>
-        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Landscape">
+        <member name="F:Telerik.Windows.Documents.Model.PageOrientation.Rotate90">
             <summary> 
             Landscape page orientation.
             </summary>
@@ -2622,14 +2576,34 @@
             Adobe application marker.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.COM">
+            <summary>
+            Comment.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.DHT">
+            <summary>
+            Define huffman table marker.
+            </summary>
+        </member>
         <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.DQT">
             <summary>
             Define quantization table marker.
             </summary>
         </member>
+        <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.DRI">
+            <summary>
+            Define restart interval.
+            </summary>
+        </member>
         <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.EOI">
             <summary>
             End of image.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.RST">
+            <summary>
+            Restart scan.
             </summary>
         </member>
         <member name="F:Telerik.Windows.Documents.Core.Imaging.Jpeg.Markers.JpegMarkerType.SOF">

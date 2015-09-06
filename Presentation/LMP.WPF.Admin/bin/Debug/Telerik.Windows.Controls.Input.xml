@@ -145,6 +145,30 @@
             
              </summary>
         </member>
+        <member name="T:Telerik.Windows.Controls.AutoCompleteBox.AutoCompleteBoxExtensions">
+            <summary>
+            A class representing value property extensions for the RadAutoCompleteBox controls.
+            </summary>
+        </member>
+        <member name="F:Telerik.Windows.Controls.AutoCompleteBox.AutoCompleteBoxExtensions.IsTabStopProperty">
+            <summary>
+            Identifies the IsTabStop dependency property.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.AutoCompleteBox.AutoCompleteBoxExtensions.GetIsTabStop(System.Windows.DependencyObject)">
+            <summary>
+            Gets the value of IsTabStop attached property.
+            </summary>
+            <param name="obj">The object to get the property for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.AutoCompleteBox.AutoCompleteBoxExtensions.SetIsTabStop(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets the value of IsTabStop attached property.
+            </summary>
+            <param name="obj">The object to set the property to.</param>
+            <param name="value"></param>
+        </member>
         <member name="T:Telerik.Windows.Controls.AutoCompleteDropDownPlacement">
             <summary>
             
@@ -8062,6 +8086,30 @@
             Gets or sets the SelectedItem.
             </summary>
         </member>
+        <member name="T:Telerik.Windows.Controls.ComboBoxFilteringBehavior">
+            <summary>
+            Represents a filtering behavior for <see cref="T:Telerik.Windows.Controls.RadComboBox"/>.
+            </summary>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ComboBoxFilteringBehavior.FindMatchingIndexes(System.String)">
+            <summary>
+            Finds matching indexes using the typed text.
+            </summary>
+            <param name="text">Text for search.</param>
+            <returns>The full match index which will be highlighted.</returns>
+        </member>
+        <member name="M:Telerik.Windows.Controls.ComboBoxFilteringBehavior.FindFullMatchIndex(System.Collections.ObjectModel.ReadOnlyCollection{System.Int32})">
+            <summary>
+            Finds the full match index which will be highlighted.
+            </summary>
+            <param name="matchIndexes">The indexes which are filtered.</param>
+            <returns>The full match index which will be highlighted.</returns>
+        </member>
+        <member name="P:Telerik.Windows.Controls.ComboBoxFilteringBehavior.ComboBox">
+            <summary>
+            Gets or sets the <see cref="T:Telerik.Windows.Controls.RadComboBox"/> owner.
+            </summary>
+        </member>
         <member name="T:Telerik.Windows.Automation.Peers.RadComboBoxItemAutomationPeer">
             <summary>
             The AutomationPeer associated with the RadComboBoxItem class.
@@ -8711,6 +8759,11 @@
         <member name="P:Telerik.Windows.Controls.RadComboBox.TextBoxStyle">
             <summary>
             Gets or sets the style of the TextBox into the RadComboBox. This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:Telerik.Windows.Controls.RadComboBox.FilteringBehavior">
+            <summary>
+            Gets or sets the behavior which is used when filtering logic applies.
             </summary>
         </member>
         <member name="P:Telerik.Windows.Controls.RadComboBox.IsUISelection">

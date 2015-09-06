@@ -886,12 +886,11 @@
             Initializes a new instance of the <see cref="T:Telerik.Windows.Controls.RichTextBoxUI.Dialogs.InsertTableDialog"/> class.
             </summary>
         </member>
-        <member name="M:Telerik.Windows.Controls.RichTextBoxUI.Dialogs.InsertTableDialog.ShowDialog(System.Action{System.Int32,System.Int32},Telerik.Windows.Controls.RadRichTextBox)">
+        <member name="M:Telerik.Windows.Controls.RichTextBoxUI.Dialogs.InsertTableDialog.ShowDialog(Telerik.Windows.Documents.UI.Extensibility.InsertTableDialogContext)">
             <summary>
             Shows the dialog. Specified insert table callback is applied on user confirmation.
             </summary>
-            <param name="insertTableCallback">The insert table callback. First parameter specifies rows; second parameter specifies columns.</param>
-            <param name="owner">The owner of the dialog.</param>
+            <param name="context">The dialog context.</param>
         </member>
         <member name="M:Telerik.Windows.Controls.RichTextBoxUI.Dialogs.InsertTableDialog.InitializeComponent">
             <summary>

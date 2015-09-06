@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B6B6F290-CA30-4B0F-9D30-5BC65AD3D8EE}"
 EndProject
@@ -10,6 +10,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMP.WPF.Admin", "Presentation\LMP.WPF.Admin\LMP.WPF.Admin.csproj", "{D29ACEC0-DCEF-4245-B08D-E3742C6296F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{5ECE70CC-C088-4F0E-B0CE-0A06722250DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lirycs", "Lirycs", "{B001C963-3CDC-4A03-B263-D1EC28A2703C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMP.Domain.LyricsEditor", "LMP.Domain.LirycsEditor\LMP.Domain.LyricsEditor.csproj", "{78EB7C1E-2859-4926-952D-A88E41712759}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{491D99FC-534E-417B-B9D4-B128324E1B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMP.Infrastructure.Persistence", "LMP.Infrastructure.Persistence\LMP.Infrastructure.Persistence.csproj", "{A653DBCB-41B3-4F0D-9860-395820A309C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,11 +29,23 @@ Global
 		{D29ACEC0-DCEF-4245-B08D-E3742C6296F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D29ACEC0-DCEF-4245-B08D-E3742C6296F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D29ACEC0-DCEF-4245-B08D-E3742C6296F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78EB7C1E-2859-4926-952D-A88E41712759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EB7C1E-2859-4926-952D-A88E41712759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EB7C1E-2859-4926-952D-A88E41712759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EB7C1E-2859-4926-952D-A88E41712759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A653DBCB-41B3-4F0D-9860-395820A309C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A653DBCB-41B3-4F0D-9860-395820A309C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A653DBCB-41B3-4F0D-9860-395820A309C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A653DBCB-41B3-4F0D-9860-395820A309C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D29ACEC0-DCEF-4245-B08D-E3742C6296F0} = {B6B6F290-CA30-4B0F-9D30-5BC65AD3D8EE}
+		{B001C963-3CDC-4A03-B263-D1EC28A2703C} = {67BD9610-580F-48A4-B3C4-082452B768C6}
+		{78EB7C1E-2859-4926-952D-A88E41712759} = {B001C963-3CDC-4A03-B263-D1EC28A2703C}
+		{491D99FC-534E-417B-B9D4-B128324E1B87} = {5ECE70CC-C088-4F0E-B0CE-0A06722250DE}
+		{A653DBCB-41B3-4F0D-9860-395820A309C3} = {491D99FC-534E-417B-B9D4-B128324E1B87}
 	EndGlobalSection
 EndGlobal
